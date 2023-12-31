@@ -1,2 +1,12 @@
-# bucks2play
-iOS version of BallCalculator App
+# 테니쉬계산기
+테니스 대회의 그랜드슬램은 호주오픈, 롤랑가로스오픈, 윕블던, US오픈을 일컫는다.
+
+'테니쉬계산기' 앱에서는 각 대회의 특색을 테마로 사용하여 계산기를 사용할 때마다 테니스 친화적인 감성을 느낄수 있습니다.
+
+그럼, 다음 4개 대회의 감성을 느낄수 있는 앱을 사용해보시기 바랍니다. 
+
+![테니쉬계산기 4가지 테마 설명](https://github.com/smilesr-ryu/bucks2play/assets/27771033/64fc0194-5920-4c5e-a063-895868b5f7d0)
+
+
+ * Developer Contact: smilesr.ryu@gmail.com
+ 

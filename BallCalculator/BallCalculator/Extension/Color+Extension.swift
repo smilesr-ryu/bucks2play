@@ -1,5 +1,5 @@
 //
-//  ColorExtension.swift
+//  Color+Extension.swift
 //  BallCalculator
 //
 //  Created by Juhee Lee on 2023/10/14.

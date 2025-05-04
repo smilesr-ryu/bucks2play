@@ -22,7 +22,7 @@
 		C5B4FF002B00F05E0025EC1C /* BallCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4FEFF2B00F05E0025EC1C /* BallCalculatorUITests.swift */; };
 		C5B4FF032B00FBFA0025EC1C /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = C5B4FF022B00FBFA0025EC1C /* ViewInspector */; };
 		C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CED2822ADC003D00487138 /* CalculatorFunctions.swift */; };
-		C5D1957D2ADA59F80079E799 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1957C2ADA59F80079E799 /* ColorExtension.swift */; };
+		C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1957C2ADA59F80079E799 /* Color+Extension.swift */; };
 		C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1957F2ADA6F130079E799 /* CalcButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		C5B4FEF92B00E20D0025EC1C /* BallCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallCalculatorTests.swift; path = BallCalculatorTests/BallCalculatorTests.swift; sourceTree = "<group>"; };
 		C5B4FEFF2B00F05E0025EC1C /* BallCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallCalculatorUITests.swift; path = BallCalculatorUITests/BallCalculatorUITests.swift; sourceTree = "<group>"; };
 		C5CED2822ADC003D00487138 /* CalculatorFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFunctions.swift; sourceTree = "<group>"; };
-		C5D1957C2ADA59F80079E799 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		C5D1957C2ADA59F80079E799 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C5D1957F2ADA6F130079E799 /* CalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 		C5D1957B2ADA59E80079E799 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C5D1957C2ADA59F80079E799 /* ColorExtension.swift */,
+				C5D1957C2ADA59F80079E799 /* Color+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
-				C5D1957D2ADA59F80079E799 /* ColorExtension.swift in Sources */,
+				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

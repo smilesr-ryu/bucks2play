@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B544F7D2DC81AA500A0870A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F7C2DC81AA500A0870A /* Lottie */; };
+		2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F7F2DC81ABB00A0870A /* LottieView.swift */; };
+		2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */; };
+		2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F7E2DC81ABB00A0870A /* LoginView.swift */; };
+		2B544F872DC81B1100A0870A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F862DC81B1100A0870A /* FirebaseAuth */; };
+		2B544F892DC81B1100A0870A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F882DC81B1100A0870A /* FirebaseFirestore */; };
+		2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -44,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B544F7A2DC819FF00A0870A /* BallCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BallCalculator.entitlements; sourceTree = "<group>"; };
+		2B544F7E2DC81ABB00A0870A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2B544F7F2DC81ABB00A0870A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleLoginButton.swift; sourceTree = "<group>"; };
+		2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B544F7D2DC81AA500A0870A /* Lottie in Frameworks */,
+				2B544F872DC81B1100A0870A /* FirebaseAuth in Frameworks */,
+				2B544F892DC81B1100A0870A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B544F812DC81ABB00A0870A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2B544F7E2DC81ABB00A0870A /* LoginView.swift */,
+				2B544F7F2DC81ABB00A0870A /* LottieView.swift */,
+				2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		C532B48A2AD4D669006E298D = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +140,8 @@
 		C532B4952AD4D669006E298D /* BallCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */,
+				2B544F7A2DC819FF00A0870A /* BallCalculator.entitlements */,
 				C532B4962AD4D669006E298D /* BallCalculatorApp.swift */,
 				C532B4D52AD639DC006E298D /* Info.plist */,
 				C5D1957B2ADA59E80079E799 /* Extension */,
@@ -130,6 +157,7 @@
 		C532B4C02AD4D808006E298D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2B544F812DC81ABB00A0870A /* Login */,
 				C532B4982AD4D669006E298D /* ContentView.swift */,
 				C5339C1C2AE50D8900ADCF6B /* ThemeSelectView.swift */,
 				C564C8002B01C5AE00A42261 /* AutoThemeSelectView.swift */,
@@ -285,6 +313,8 @@
 			mainGroup = C532B48A2AD4D669006E298D;
 			packageReferences = (
 				C5B4FF012B00FBFA0025EC1C /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				2B544F7B2DC81AA500A0870A /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				2B544F852DC81B1100A0870A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C532B4942AD4D669006E298D /* Products */;
 			projectDirPath = "";
@@ -303,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */,
+				2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */,
 				C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */,
 				C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */,
 			);
@@ -338,6 +369,9 @@
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
+				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
+				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
+				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,
 				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 			);
@@ -499,10 +533,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BallCalculator/BallCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = K23A78WQAY;
+				DEVELOPMENT_TEAM = UV2PAA368V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallCalculator/Info.plist;
@@ -517,7 +552,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator.yunki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -530,10 +565,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BallCalculator/BallCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = K23A78WQAY;
+				DEVELOPMENT_TEAM = UV2PAA368V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallCalculator/Info.plist;
@@ -548,7 +584,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator.yunki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -680,6 +716,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B544F7B2DC81AA500A0870A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+		2B544F852DC81B1100A0870A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
 		C5B4FF012B00FBFA0025EC1C /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
@@ -691,6 +743,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B544F7C2DC81AA500A0870A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B544F7B2DC81AA500A0870A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		2B544F862DC81B1100A0870A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B544F852DC81B1100A0870A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2B544F882DC81B1100A0870A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B544F852DC81B1100A0870A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		C5B4FF022B00FBFA0025EC1C /* ViewInspector */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C5B4FF012B00FBFA0025EC1C /* XCRemoteSwiftPackageReference "ViewInspector" */;

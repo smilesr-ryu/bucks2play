@@ -17,6 +17,7 @@
 		2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */; };
 		2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F902DC81B8400A0870A /* View+Extension.swift */; };
 		2B544F932DC81B9800A0870A /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F922DC81B9800A0870A /* login.json */; };
+		2B544F972DC81E9300A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F962DC81E9300A0870A /* GoogleService-Info.plist */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		2B544F902DC81B8400A0870A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		2B544F922DC81B9800A0870A /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
+		2B544F962DC81E9300A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				C532B4C02AD4D808006E298D /* Views */,
 				C564C7FD2B01C26700A42261 /* Manager */,
 				C5CED2812ADC002900487138 /* Function */,
+				2B544F962DC81E9300A0870A /* GoogleService-Info.plist */,
 			);
 			path = BallCalculator;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */,
 				2B544F932DC81B9800A0870A /* login.json in Resources */,
+				2B544F972DC81E9300A0870A /* GoogleService-Info.plist in Resources */,
 				C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */,
 				C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */,
 			);

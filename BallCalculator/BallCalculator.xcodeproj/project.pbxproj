@@ -14,6 +14,10 @@
 		2B544F872DC81B1100A0870A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F862DC81B1100A0870A /* FirebaseAuth */; };
 		2B544F892DC81B1100A0870A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F882DC81B1100A0870A /* FirebaseFirestore */; };
 		2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */; };
+		2B544F8D2DC81B7500A0870A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8C2DC81B7500A0870A /* User.swift */; };
+		2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */; };
+		2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F902DC81B8400A0870A /* View+Extension.swift */; };
+		2B544F932DC81B9800A0870A /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F922DC81B9800A0870A /* login.json */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -56,6 +60,10 @@
 		2B544F7F2DC81ABB00A0870A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleLoginButton.swift; sourceTree = "<group>"; };
 		2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B544F8C2DC81B7500A0870A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		2B544F902DC81B8400A0870A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		2B544F922DC81B9800A0870A /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -177,6 +185,7 @@
 		C532B4C42AD638AC006E298D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B544F922DC81B9800A0870A /* login.json */,
 				C532B49A2AD4D66C006E298D /* Assets.xcassets */,
 				C532B4C32AD6389F006E298D /* Fonts */,
 			);
@@ -203,6 +212,8 @@
 		C5D1957B2ADA59E80079E799 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2B544F902DC81B8400A0870A /* View+Extension.swift */,
+				2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */,
 				C5D1957C2ADA59F80079E799 /* Color+Extension.swift */,
 			);
 			path = Extension;
@@ -211,6 +222,7 @@
 		C5D1957E2ADA6EFE0079E799 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B544F8C2DC81B7500A0870A /* User.swift */,
 				C5D1957F2ADA6F130079E799 /* CalcButton.swift */,
 				C5339C162AE4FC5400ADCF6B /* Theme.swift */,
 				C5339C182AE503E300ADCF6B /* Operation.swift */,
@@ -334,6 +346,7 @@
 			files = (
 				C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */,
 				2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */,
+				2B544F932DC81B9800A0870A /* login.json in Resources */,
 				C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */,
 				C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */,
 			);
@@ -363,16 +376,19 @@
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
 				C5339C1B2AE5096C00ADCF6B /* ButtonSize.swift in Sources */,
+				2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */,
 				C5339C1D2AE50D8900ADCF6B /* ThemeSelectView.swift in Sources */,
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
+				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
 				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
 				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
 				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,
 				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
+				2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

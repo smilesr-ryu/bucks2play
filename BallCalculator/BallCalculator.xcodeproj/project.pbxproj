@@ -13,7 +13,6 @@
 		2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F7E2DC81ABB00A0870A /* LoginView.swift */; };
 		2B544F872DC81B1100A0870A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F862DC81B1100A0870A /* FirebaseAuth */; };
 		2B544F892DC81B1100A0870A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F882DC81B1100A0870A /* FirebaseFirestore */; };
-		2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */; };
 		2B544F8D2DC81B7500A0870A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8C2DC81B7500A0870A /* User.swift */; };
 		2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */; };
 		2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F902DC81B8400A0870A /* View+Extension.swift */; };
@@ -59,7 +58,6 @@
 		2B544F7E2DC81ABB00A0870A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2B544F7F2DC81ABB00A0870A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleLoginButton.swift; sourceTree = "<group>"; };
-		2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B544F8C2DC81B7500A0870A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		2B544F902DC81B8400A0870A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		C532B4952AD4D669006E298D /* BallCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				2B544F8A2DC81B3000A0870A /* GoogleService-Info.plist */,
 				2B544F7A2DC819FF00A0870A /* BallCalculator.entitlements */,
 				C532B4962AD4D669006E298D /* BallCalculatorApp.swift */,
 				C532B4D52AD639DC006E298D /* Info.plist */,
@@ -345,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */,
-				2B544F8B2DC81B3000A0870A /* GoogleService-Info.plist in Resources */,
 				2B544F932DC81B9800A0870A /* login.json in Resources */,
 				C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */,
 				C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */,

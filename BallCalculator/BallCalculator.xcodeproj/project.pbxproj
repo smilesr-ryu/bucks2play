@@ -20,6 +20,7 @@
 		2B544F972DC81E9300A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F962DC81E9300A0870A /* GoogleService-Info.plist */; };
 		2B544F9E2DC8C91000A0870A /* ButtonStyleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F9D2DC8C91000A0870A /* ButtonStyleType.swift */; };
 		2B544FA02DC8C93900A0870A /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F9F2DC8C93900A0870A /* ButtonState.swift */; };
+		2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FA22DC8CA3F00A0870A /* AuthManager.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		2B544F962DC81E9300A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B544F9D2DC8C91000A0870A /* ButtonStyleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleType.swift; sourceTree = "<group>"; };
 		2B544F9F2DC8C93900A0870A /* ButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
+		2B544FA22DC8CA3F00A0870A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		C564C7FD2B01C26700A42261 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2B544FA22DC8CA3F00A0870A /* AuthManager.swift */,
 				C564C8042B01F47B00A42261 /* ThemeManager.swift */,
 			);
 			path = Manager;
@@ -404,6 +407,7 @@
 				C5339C1D2AE50D8900ADCF6B /* ThemeSelectView.swift in Sources */,
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
+				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,

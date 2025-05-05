@@ -24,6 +24,9 @@
 		2B544FAB2DC8F7C700A0870A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FAA2DC8F7C700A0870A /* RoundedButton.swift */; };
 		2B544FAD2DC8F9AE00A0870A /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FAC2DC8F9AE00A0870A /* TextButton.swift */; };
 		2B544FAF2DC90FF400A0870A /* TinyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FAE2DC90FF400A0870A /* TinyButton.swift */; };
+		2B544FB22DC918C900A0870A /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB12DC918C300A0870A /* TextFieldStyle.swift */; };
+		2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB32DC9578000A0870A /* BasicTextField.swift */; };
+		2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB52DC985ED00A0870A /* FormTextField.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -76,6 +79,9 @@
 		2B544FAA2DC8F7C700A0870A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		2B544FAC2DC8F9AE00A0870A /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		2B544FAE2DC90FF400A0870A /* TinyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyButton.swift; sourceTree = "<group>"; };
+		2B544FB12DC918C300A0870A /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		2B544FB32DC9578000A0870A /* BasicTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextField.swift; sourceTree = "<group>"; };
+		2B544FB52DC985ED00A0870A /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 		2B544F9C2DC8C8DD00A0870A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B544FB02DC913A300A0870A /* Inputs */,
 				2B544FA12DC8C95200A0870A /* Buttons */,
 			);
 			path = Components;
@@ -155,6 +162,16 @@
 				2B544FAE2DC90FF400A0870A /* TinyButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		2B544FB02DC913A300A0870A /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				2B544FB12DC918C300A0870A /* TextFieldStyle.swift */,
+				2B544FB32DC9578000A0870A /* BasicTextField.swift */,
+				2B544FB52DC985ED00A0870A /* FormTextField.swift */,
+			);
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		C532B48A2AD4D669006E298D = {
@@ -416,10 +433,12 @@
 				2B544FA52DC8CCF500A0870A /* ButtonStyle.swift in Sources */,
 				C5339C1D2AE50D8900ADCF6B /* ThemeSelectView.swift in Sources */,
 				2B544FA72DC8CFDF00A0870A /* BasicButton.swift in Sources */,
+				2B544FB22DC918C900A0870A /* TextFieldStyle.swift in Sources */,
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
+				2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
@@ -428,6 +447,7 @@
 				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,
 				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
 				2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */,
+				2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 				2B544FAF2DC90FF400A0870A /* TinyButton.swift in Sources */,
 			);

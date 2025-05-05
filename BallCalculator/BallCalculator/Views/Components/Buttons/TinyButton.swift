@@ -1,13 +1,13 @@
 //
-//  RoundedButton.swift
+//  TinyButton.swift
 //  BallCalculator
 //
-//  Created by Yunki on 5/5/25.
+//  Created by Yunki on 5/6/25.
 //
 
 import SwiftUI
 
-struct RoundedButton: View {
+struct TinyButton: View {
     let label: String
     let type: ButtonStyleType
     let isEnabled: Bool
@@ -31,15 +31,15 @@ struct RoundedButton: View {
         Text(label)
             .fontStyle(.label1_B)
             .frame(height: 24)
-            .padding(.vertical, 12)
-            .padding(.horizontal, 25)
+            .padding(.vertical, 4)
+            .padding(.horizontal, 12)
             .foregroundColor(style.foregroundColor)
             .background(style.backgroundColor)
-            .cornerRadius(48)
+            .cornerRadius(8)
             .overlay(
-                RoundedRectangle(cornerRadius: 48)
+                RoundedRectangle(cornerRadius: 8)
                     .stroke(style.borderColor ?? .clear, lineWidth: 2)
-                    .clipShape(RoundedRectangle(cornerRadius: 48))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
             )
             .gesture(
                 DragGesture(minimumDistance: 0)
@@ -55,20 +55,27 @@ struct RoundedButton: View {
     }
 }
 
-extension RoundedButton {
+extension TinyButton {
     func buttonStyle(type: ButtonStyleType, state: ButtonVisualState) -> ButtonStyleConfiguration {
         switch (type, state) {
-        case (_, .normal):
+        case (.primary, .normal):
             return ButtonStyleConfiguration(backgroundColor: .black01, foregroundColor: .white01, borderColor: nil)
-        case (_, .pressed):
+        case (.primary, .pressed):
             return ButtonStyleConfiguration(backgroundColor: .black02, foregroundColor: .white01, borderColor: nil)
-        case (_, .disabled):
+        case (.primary, .disabled):
             return ButtonStyleConfiguration(backgroundColor: .black03, foregroundColor: .white01, borderColor: nil)
+            
+        case (_, .normal):
+            return ButtonStyleConfiguration(backgroundColor: .black05, foregroundColor: .black01, borderColor: nil)
+        case (_, .pressed):
+            return ButtonStyleConfiguration(backgroundColor: .black05, foregroundColor: .black03, borderColor: nil)
+        case (_, .disabled):
+            return ButtonStyleConfiguration(backgroundColor: .black03, foregroundColor: .black02, borderColor: nil)
         }
     }
 
 }
 
 #Preview {
-    RoundedButton("TEXT", isEnabled: true, action: {})
+    TinyButton("TEXT", isEnabled: true, action: {})
 }

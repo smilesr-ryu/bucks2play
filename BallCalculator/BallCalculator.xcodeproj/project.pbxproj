@@ -27,6 +27,7 @@
 		2B544FB22DC918C900A0870A /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB12DC918C300A0870A /* TextFieldStyle.swift */; };
 		2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB32DC9578000A0870A /* BasicTextField.swift */; };
 		2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB52DC985ED00A0870A /* FormTextField.swift */; };
+		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		2B544FB12DC918C300A0870A /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		2B544FB32DC9578000A0870A /* BasicTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextField.swift; sourceTree = "<group>"; };
 		2B544FB52DC985ED00A0870A /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		2B544F9C2DC8C8DD00A0870A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2BAFB5B52DD174E900ADDA57 /* TopBars */,
 				2B544FB02DC913A300A0870A /* Inputs */,
 				2B544FA12DC8C95200A0870A /* Buttons */,
 			);
@@ -172,6 +175,14 @@
 				2B544FB52DC985ED00A0870A /* FormTextField.swift */,
 			);
 			path = Inputs;
+			sourceTree = "<group>";
+		};
+		2BAFB5B52DD174E900ADDA57 /* TopBars */ = {
+			isa = PBXGroup;
+			children = (
+				2BAFB5B62DD1750000ADDA57 /* TopBar.swift */,
+			);
+			path = TopBars;
 			sourceTree = "<group>";
 		};
 		C532B48A2AD4D669006E298D = {
@@ -425,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B544FAD2DC8F9AE00A0870A /* TextButton.swift in Sources */,
+				2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */,
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
 				C5339C1B2AE5096C00ADCF6B /* ButtonSize.swift in Sources */,

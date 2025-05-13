@@ -10,21 +10,33 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Text("X")
-            }
+            TopBar(close: {})
             
             LottieView(name: "login", loopMode: .loop)
                 .frame(height: 146)
+                .padding(.top, 40)
             
-            SignInWithAppleButtonView()
+            Spacer()
             
-            HStack {
-                Text("내 계정 찾기")
-                Text("|")
-                Text("아이디로 시작하기")
+            VStack(spacing: 24) {
+                VStack(spacing: 11) {
+                    SignInWithAppleButtonView()
+                }
+                
+                HStack {
+                    Text("내 계정 찾기")
+                        .fontStyle(.label1_R)
+                    
+                    Rectangle()
+                        .frame(width: 1, height: 12)
+                        .foregroundStyle(.black02)
+                    
+                    Text("아이디로 시작하기")
+                        .fontStyle(.label1_R)
+                }
             }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 118)
         }
     }
 }

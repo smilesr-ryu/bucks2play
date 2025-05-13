@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, RightIcon: View>: View {
+struct FormTextField<Helper: View, Trailing: View, LeftIcon: View, RightIcon: View>: View {
+    var title: String?
     var prompt: String?
     @Binding var text: String
     var type: TextFieldStyleType
 
-    @ViewBuilder var title: () -> Title
     @ViewBuilder var helper: () -> Helper
     @ViewBuilder var trailing: () -> Trailing
     @ViewBuilder var leftIcon: () -> LeftIcon
     @ViewBuilder var rightIcon: () -> RightIcon
 
     init(
+        title: String? = nil,
         prompt: String? = nil,
         text: Binding<String>,
         type: TextFieldStyleType = .normal,
-        @ViewBuilder title: @escaping () -> Title = { EmptyView() },
         @ViewBuilder helper: @escaping () -> Helper = { EmptyView() },
         @ViewBuilder trailing: @escaping () -> Trailing = { EmptyView() },
         @ViewBuilder leftIcon: @escaping () -> LeftIcon = { EmptyView() },
@@ -40,9 +40,11 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            title()
-                .font(.label1_R)
-                .foregroundStyle(.black01)
+            if let title {
+                Text(title)
+                    .font(.label1_R)
+                    .foregroundStyle(.black01)
+            }
 
             HStack(spacing: 6) {
                 BasicTextField(
@@ -59,16 +61,18 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
             helper()
                 .font(.caption1_R)
         }
+        .padding(.horizontal, 20)
+        .padding(.top, 12)
     }
 }
 
 #Preview("FormTextField") {
     VStack(spacing: 16) {
         FormTextField(
+            title: "이메일",
             prompt: "이메일",
             text: .constant("user@example.com"),
             type: .normal,
-            title: { Text("이메일").font(.caption) },
             helper: { Text("이메일 형식을 입력하세요").font(.caption2).foregroundColor(.gray) },
             trailing: {
                 RoundedButton("Text", action: {})

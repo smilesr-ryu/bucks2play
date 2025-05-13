@@ -30,9 +30,9 @@ struct RoundedButton: View {
         
         Text(label)
             .fontStyle(.label1_B)
-            .frame(height: 24)
+            .frame(width: 84, height: 24)
             .padding(.vertical, 12)
-            .padding(.horizontal, 25)
+//            .padding(.horizontal, 18)
             .foregroundColor(style.foregroundColor)
             .background(style.backgroundColor)
             .cornerRadius(48)

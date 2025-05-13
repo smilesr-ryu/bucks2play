@@ -28,6 +28,8 @@
 		2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB32DC9578000A0870A /* BasicTextField.swift */; };
 		2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FB52DC985ED00A0870A /* FormTextField.swift */; };
 		2B728E2A2DD3438000C1AF6D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E292DD3438000C1AF6D /* SignInView.swift */; };
+		2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */; };
+		2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -85,6 +87,8 @@
 		2B544FB32DC9578000A0870A /* BasicTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextField.swift; sourceTree = "<group>"; };
 		2B544FB52DC985ED00A0870A /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		2B728E292DD3438000C1AF6D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
+		2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			children = (
 				2B544F7E2DC81ABB00A0870A /* LoginView.swift */,
 				2B728E292DD3438000C1AF6D /* SignInView.swift */,
+				2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */,
+				2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B544FAD2DC8F9AE00A0870A /* TextButton.swift in Sources */,
+				2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */,
 				2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */,
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
@@ -464,6 +471,7 @@
 				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
 				2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */,
 				2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */,
+				2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 				2B544FAF2DC90FF400A0870A /* TinyButton.swift in Sources */,
 			);

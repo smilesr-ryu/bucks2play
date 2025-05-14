@@ -20,16 +20,16 @@ struct ResetPasswordView: View {
                 })
             
             FormTextField(
-                title: "새 비밀번호",
                 prompt: "8~20자 이내의 영문 + 숫자",
                 text: $password,
+                title: { Text("새 비밀번호") },
                 rightIcon: { Image(.eye18) }
             )
             
             FormTextField(
-                title: "새 비밀번호 확인",
                 prompt: "새 비밀번호 재입력",
                 text: $passwordCheck,
+                title: { Text("새 비밀번호 확인") },
                 rightIcon: { Image(.eye18) }
             )
             

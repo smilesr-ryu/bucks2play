@@ -16,3 +16,20 @@ struct User: Identifiable {
     let racket: String?
     let lastLogin: Date
 }
+
+enum Gender: String, CaseIterable {
+    case male
+    case female
+    case none
+    
+    var description: String {
+        switch self {
+        case .male:
+            return "남성"
+        case .female:
+            return "여성"
+        case .none:
+            return "선택하지 않음"
+        }
+    }
+}

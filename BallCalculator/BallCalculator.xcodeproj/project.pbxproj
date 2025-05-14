@@ -30,6 +30,7 @@
 		2B728E2A2DD3438000C1AF6D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E292DD3438000C1AF6D /* SignInView.swift */; };
 		2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */; };
 		2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */; };
+		2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -89,6 +90,7 @@
 		2B728E292DD3438000C1AF6D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				2B728E292DD3438000C1AF6D /* SignInView.swift */,
 				2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */,
 				2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */,
+				2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
+				2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */,
 				2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,

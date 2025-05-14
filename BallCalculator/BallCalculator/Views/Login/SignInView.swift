@@ -20,15 +20,15 @@ struct SignInView: View {
                 })
             
             FormTextField(
-                title: "아이디",
                 prompt: "아이디 입력",
-                text: $id
+                text: $id,
+                title: { Text("아이디") }
             )
             
             FormTextField(
-                title: "비밀번호",
                 prompt: "비밀번호 입력",
                 text: $password,
+                title: { Text("비밀번호") },
                 rightIcon: { Image(.eye18) }
             )
             

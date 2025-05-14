@@ -21,22 +21,22 @@ struct FindPasswordView: View {
                 })
             
             FormTextField(
-                title: "아이디",
                 prompt: "아이디 입력",
-                text: $id
+                text: $id,
+                title: { Text("아이디") }
             )
             
             FormTextField(
-                title: "이메일",
                 prompt: "이메일 입력",
                 text: $email,
+                title: { Text("이메일") },
                 trailing: { RoundedButton("인증요청", action: {}) }
             )
             
             FormTextField(
-                title: "인증번호",
                 prompt: "인증번호 입력",
                 text: $password,
+                title: { Text("인증번호") },
                 rightIcon: { Image(.eye18) }
             )
             

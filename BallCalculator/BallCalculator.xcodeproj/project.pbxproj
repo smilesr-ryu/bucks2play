@@ -38,6 +38,9 @@
 		2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3A2DE04A6B00C1AF6D /* LogoutPopup.swift */; };
 		2B728E3D2DE04AFA00C1AF6D /* DeleteAccountPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3C2DE04AFA00C1AF6D /* DeleteAccountPopup.swift */; };
 		2B728E3F2DE04C1100C1AF6D /* UnregisteredPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */; };
+		2B728E422DE04CE400C1AF6D /* SavedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E412DE04CE400C1AF6D /* SavedToast.swift */; };
+		2B728E442DE0531400C1AF6D /* PasswordChangedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */; };
+		2B728E462DE0535700C1AF6D /* SignUpCompletedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -105,6 +108,9 @@
 		2B728E3A2DE04A6B00C1AF6D /* LogoutPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopup.swift; sourceTree = "<group>"; };
 		2B728E3C2DE04AFA00C1AF6D /* DeleteAccountPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopup.swift; sourceTree = "<group>"; };
 		2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregisteredPopup.swift; sourceTree = "<group>"; };
+		2B728E412DE04CE400C1AF6D /* SavedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedToast.swift; sourceTree = "<group>"; };
+		2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangedToast.swift; sourceTree = "<group>"; };
+		2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletedToast.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 		2B544F9C2DC8C8DD00A0870A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B728E402DE04CD500C1AF6D /* Toasts */,
 				2B728E372DE0423200C1AF6D /* Popups */,
 				2BAFB5B52DD174E900ADDA57 /* TopBars */,
 				2B544FB02DC913A300A0870A /* Inputs */,
@@ -213,6 +220,16 @@
 				2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */,
 			);
 			path = Popups;
+			sourceTree = "<group>";
+		};
+		2B728E402DE04CD500C1AF6D /* Toasts */ = {
+			isa = PBXGroup;
+			children = (
+				2B728E412DE04CE400C1AF6D /* SavedToast.swift */,
+				2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */,
+				2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */,
+			);
+			path = Toasts;
 			sourceTree = "<group>";
 		};
 		2BAFB5B52DD174E900ADDA57 /* TopBars */ = {
@@ -479,8 +496,10 @@
 				2B544FAD2DC8F9AE00A0870A /* TextButton.swift in Sources */,
 				2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */,
 				2B728E3D2DE04AFA00C1AF6D /* DeleteAccountPopup.swift in Sources */,
+				2B728E462DE0535700C1AF6D /* SignUpCompletedToast.swift in Sources */,
 				2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */,
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
+				2B728E442DE0531400C1AF6D /* PasswordChangedToast.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
 				C5339C1B2AE5096C00ADCF6B /* ButtonSize.swift in Sources */,
 				2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */,
@@ -502,6 +521,7 @@
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
+				2B728E422DE04CE400C1AF6D /* SavedToast.swift in Sources */,
 				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
 				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
 				2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */,

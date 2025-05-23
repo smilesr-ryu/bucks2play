@@ -17,7 +17,6 @@ struct ContentView: View {
     @State var flag = false
     @State var isPresented = false
     @State var currentTheme: Theme
-    @State private var buttonStates = Array(repeating: false, count: 22)
     @State var selectedButton: CalcButton
     @State var selectedImageName = ""
     let buttons: [[CalcButton]] = [
@@ -126,7 +125,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isPresented) {
             ThemeSelectView(currentTheme: $currentTheme)
-                .presentationDetents([.fraction(0.4)])
+                .presentationDetents([.fraction(0.6)])
         }
         .onAppear {
             if let selectedThemeRawValue = UserDefaults.standard.string(forKey: "theme"),

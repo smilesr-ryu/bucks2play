@@ -31,6 +31,13 @@
 		2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */; };
 		2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */; };
 		2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */; };
+		2B728E322DDF111700C1AF6D /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E312DDF111700C1AF6D /* PopupManager.swift */; };
+		2B728E342DDF115400C1AF6D /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E332DDF114F00C1AF6D /* Popup.swift */; };
+		2B728E362DDF117B00C1AF6D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E352DDF117800C1AF6D /* Toast.swift */; };
+		2B728E392DE0425700C1AF6D /* ThemeOpenPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E382DE0425700C1AF6D /* ThemeOpenPopup.swift */; };
+		2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3A2DE04A6B00C1AF6D /* LogoutPopup.swift */; };
+		2B728E3D2DE04AFA00C1AF6D /* DeleteAccountPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3C2DE04AFA00C1AF6D /* DeleteAccountPopup.swift */; };
+		2B728E3F2DE04C1100C1AF6D /* UnregisteredPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -91,6 +98,13 @@
 		2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2B728E312DDF111700C1AF6D /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		2B728E332DDF114F00C1AF6D /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		2B728E352DDF117800C1AF6D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		2B728E382DE0425700C1AF6D /* ThemeOpenPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeOpenPopup.swift; sourceTree = "<group>"; };
+		2B728E3A2DE04A6B00C1AF6D /* LogoutPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopup.swift; sourceTree = "<group>"; };
+		2B728E3C2DE04AFA00C1AF6D /* DeleteAccountPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopup.swift; sourceTree = "<group>"; };
+		2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregisteredPopup.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -158,6 +172,7 @@
 		2B544F9C2DC8C8DD00A0870A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B728E372DE0423200C1AF6D /* Popups */,
 				2BAFB5B52DD174E900ADDA57 /* TopBars */,
 				2B544FB02DC913A300A0870A /* Inputs */,
 				2B544FA12DC8C95200A0870A /* Buttons */,
@@ -187,6 +202,17 @@
 				2B544FB52DC985ED00A0870A /* FormTextField.swift */,
 			);
 			path = Inputs;
+			sourceTree = "<group>";
+		};
+		2B728E372DE0423200C1AF6D /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				2B728E382DE0425700C1AF6D /* ThemeOpenPopup.swift */,
+				2B728E3A2DE04A6B00C1AF6D /* LogoutPopup.swift */,
+				2B728E3C2DE04AFA00C1AF6D /* DeleteAccountPopup.swift */,
+				2B728E3E2DE04C1100C1AF6D /* UnregisteredPopup.swift */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 		2BAFB5B52DD174E900ADDA57 /* TopBars */ = {
@@ -270,6 +296,7 @@
 			children = (
 				2B544FA22DC8CA3F00A0870A /* AuthManager.swift */,
 				C564C8042B01F47B00A42261 /* ThemeManager.swift */,
+				2B728E312DDF111700C1AF6D /* PopupManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -296,6 +323,8 @@
 		C5D1957E2ADA6EFE0079E799 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B728E352DDF117800C1AF6D /* Toast.swift */,
+				2B728E332DDF114F00C1AF6D /* Popup.swift */,
 				2B544F8C2DC81B7500A0870A /* User.swift */,
 				C5D1957F2ADA6F130079E799 /* CalcButton.swift */,
 				C5339C162AE4FC5400ADCF6B /* Theme.swift */,
@@ -449,6 +478,7 @@
 			files = (
 				2B544FAD2DC8F9AE00A0870A /* TextButton.swift in Sources */,
 				2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */,
+				2B728E3D2DE04AFA00C1AF6D /* DeleteAccountPopup.swift in Sources */,
 				2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */,
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
@@ -456,7 +486,10 @@
 				2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */,
 				2B544FAB2DC8F7C700A0870A /* RoundedButton.swift in Sources */,
 				2B544FA52DC8CCF500A0870A /* ButtonStyle.swift in Sources */,
+				2B728E342DDF115400C1AF6D /* Popup.swift in Sources */,
+				2B728E392DE0425700C1AF6D /* ThemeOpenPopup.swift in Sources */,
 				C5339C1D2AE50D8900ADCF6B /* ThemeSelectView.swift in Sources */,
+				2B728E3F2DE04C1100C1AF6D /* UnregisteredPopup.swift in Sources */,
 				2B544FA72DC8CFDF00A0870A /* BasicButton.swift in Sources */,
 				2B544FB22DC918C900A0870A /* TextFieldStyle.swift in Sources */,
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
@@ -465,16 +498,19 @@
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */,
 				2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */,
+				2B728E362DDF117B00C1AF6D /* Toast.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
 				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
 				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
+				2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */,
 				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,
 				2B728E2A2DD3438000C1AF6D /* SignInView.swift in Sources */,
 				C5D1957D2ADA59F80079E799 /* Color+Extension.swift in Sources */,
 				2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */,
 				2B544FB62DC985ED00A0870A /* FormTextField.swift in Sources */,
+				2B728E322DDF111700C1AF6D /* PopupManager.swift in Sources */,
 				2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */,
 				C564C8052B01F47B00A42261 /* ThemeManager.swift in Sources */,
 				2B544FAF2DC90FF400A0870A /* TinyButton.swift in Sources */,

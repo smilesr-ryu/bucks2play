@@ -145,6 +145,8 @@ struct ThemeSelectView: View {
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
+            
+            Spacer()
         }
         .sheet(isPresented: $isOnAutoTheme) {
             AutoThemeSelectView(isOnAutoTheme: $isOnAutoTheme, startDate: Date(), endDate: Date())

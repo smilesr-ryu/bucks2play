@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ThemeSelectView: View {
+    @State var authManager = AuthManager()
+    
     @Binding var currentTheme: Theme
     @State var isOnAutoTheme = false
     let themeManager: ThemeManager = ThemeManager.shared
@@ -21,32 +23,53 @@ struct ThemeSelectView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Button {
-                
-            } label: {
+            if let user = authManager.currentUser {
                 HStack {
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("로그인")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("반가워요!")
+                            .fontStyle(.label1_B)
+                            .foregroundStyle(.black02)
+                            .frame(height: 18)
+                        Text("\(user.nickname) 님")
                             .fontStyle(.display2_B)
-                        Text("하고 모든 테마를 열어보세요!")
-                            .fontStyle(.body1_R)
+                            .frame(height: 28)
                     }
-                    
                     
                     Spacer()
                     
-                    Image(.arrowRight24)
+                    TinyButton("내 정보", type: .primary) {
+                        
+                    }
                 }
                 .foregroundStyle(.black01)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 20)
+                .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 20))
+            } else {
+                Button {
+                    
+                } label: {
+                    HStack {
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("로그인")
+                                .fontStyle(.display2_B)
+                            Text("하고 모든 테마를 열어보세요!")
+                                .fontStyle(.body1_R)
+                        }
+                        
+                        Spacer()
+                        
+                        Image(.arrowRight24)
+                    }
+                    .foregroundStyle(.black01)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 20)
+                }
+                .padding(.vertical, 12)
             }
             
             Rectangle()
                 .foregroundStyle(.black04)
                 .frame(height: 1)
                 .padding(.horizontal, 20)
-                .padding(.top, 12)
             
             VStack(spacing: 16) {
                 HStack {

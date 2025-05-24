@@ -24,6 +24,7 @@ struct BallCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
                 .onAppear {
                     print("App Start-----------------------------")
                     ThemeManager.shared.loadDatesFromUserDefaults()

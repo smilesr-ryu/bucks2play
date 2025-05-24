@@ -126,6 +126,7 @@ struct CalculatorView: View {
         .sheet(isPresented: $isPresented) {
             ThemeSelectView(currentTheme: $currentTheme)
                 .presentationDetents([.fraction(0.6)])
+                .presentationDragIndicator(.visible)
         }
         .onAppear {
             if let selectedThemeRawValue = UserDefaults.standard.string(forKey: "theme"),

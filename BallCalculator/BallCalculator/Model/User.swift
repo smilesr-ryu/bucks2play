@@ -11,7 +11,7 @@ struct User: Identifiable {
     let id: String
     let email: String
     let nickname: String
-    let gender: String
+    let gender: Gender
     let favoritePlayer: String?
     let racket: String?
     let lastLogin: Date

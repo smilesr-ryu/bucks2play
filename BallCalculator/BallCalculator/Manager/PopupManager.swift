@@ -9,6 +9,8 @@ import SwiftUI
 
 @Observable
 class PopupManager {
+    static var shared = PopupManager()
+    
     var activePopup: Popup?
     var toast: Toast?
 }

@@ -7,4 +7,6 @@
 
 enum Toast {
     case saved
+    case passwordChanged
+    case signUpComplete
 }

@@ -23,7 +23,7 @@ struct BallCalculatorApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(currentTheme: Theme.aus, selectedButton: .one)
+            ContentView()
                 .onAppear {
                     print("App Start-----------------------------")
                     ThemeManager.shared.loadDatesFromUserDefaults()

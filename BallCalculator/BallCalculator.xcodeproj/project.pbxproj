@@ -41,6 +41,7 @@
 		2B728E422DE04CE400C1AF6D /* SavedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E412DE04CE400C1AF6D /* SavedToast.swift */; };
 		2B728E442DE0531400C1AF6D /* PasswordChangedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */; };
 		2B728E462DE0535700C1AF6D /* SignUpCompletedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */; };
+		2B728E482DE160DA00C1AF6D /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E472DE160DA00C1AF6D /* CalculatorView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -111,6 +112,7 @@
 		2B728E412DE04CE400C1AF6D /* SavedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedToast.swift; sourceTree = "<group>"; };
 		2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangedToast.swift; sourceTree = "<group>"; };
 		2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletedToast.swift; sourceTree = "<group>"; };
+		2B728E472DE160DA00C1AF6D /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				C532B4982AD4D669006E298D /* ContentView.swift */,
 				C5339C1C2AE50D8900ADCF6B /* ThemeSelectView.swift */,
 				C564C8002B01C5AE00A42261 /* AutoThemeSelectView.swift */,
+				2B728E472DE160DA00C1AF6D /* CalculatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
+				2B728E482DE160DA00C1AF6D /* CalculatorView.swift in Sources */,
 				2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */,
 				2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */,
 				2B728E362DDF117B00C1AF6D /* Toast.swift in Sources */,

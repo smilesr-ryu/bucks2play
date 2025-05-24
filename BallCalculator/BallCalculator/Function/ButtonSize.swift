@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension ContentView {
+extension CalculatorView {
     
     func buttonWidth(item: CalcButton) -> CGFloat {
         if item == .one {

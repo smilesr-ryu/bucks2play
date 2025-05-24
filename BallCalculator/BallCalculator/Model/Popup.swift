@@ -6,5 +6,8 @@
 //
 
 enum Popup {
+    case themeOpen
     case logout
+    case deleteAccount
+    case unregisteredAccount
 }

@@ -6,7 +6,7 @@
 //
 
 
-extension ContentView {
+extension CalculatorView {
     func didTap(button: CalcButton) {
         
         switch button {

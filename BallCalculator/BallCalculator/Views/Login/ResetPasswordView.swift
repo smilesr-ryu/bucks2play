@@ -41,6 +41,7 @@ struct ResetPasswordView: View {
             
             Spacer()
         }
+        .toolbar(.hidden)
     }
 }
 

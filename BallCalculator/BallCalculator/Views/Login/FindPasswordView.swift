@@ -48,6 +48,7 @@ struct FindPasswordView: View {
             
             Spacer()
         }
+        .toolbar(.hidden)
     }
 }
 

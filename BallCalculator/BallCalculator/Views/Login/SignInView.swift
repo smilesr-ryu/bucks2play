@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @State var id: String = ""
     @State var password: String = ""
     
@@ -16,7 +18,7 @@ struct SignInView: View {
             TopBar(
                 title: "아이디로 시작하기",
                 back: {
-                    
+                    dismiss()
                 })
             
             FormTextField(
@@ -41,24 +43,38 @@ struct SignInView: View {
             HStack {
                 Text("내 계정 찾기")
                     .fontStyle(.label1_R)
+                    .underline()
                 
                 Rectangle()
                     .frame(width: 1, height: 12)
                     .foregroundStyle(.black02)
                 
-                Text("비밀번호 찾기")
-                    .fontStyle(.label1_R)
+                NavigationLink {
+                    FindPasswordView()
+                } label: {
+                    Text("비밀번호 찾기")
+                        .fontStyle(.label1_R)
+                        .foregroundStyle(.black01)
+                        .underline()
+                }
                 
                 Rectangle()
                     .frame(width: 1, height: 12)
                     .foregroundStyle(.black02)
                 
-                Text("회원가입")
-                    .fontStyle(.label1_R)
+                NavigationLink {
+                    SignUpView()
+                } label: {
+                    Text("회원가입")
+                        .fontStyle(.label1_R)
+                        .foregroundStyle(.black01)
+                        .underline()
+                }
             }
             
             Spacer()
         }
+        .toolbar(.hidden)
     }
 }
 

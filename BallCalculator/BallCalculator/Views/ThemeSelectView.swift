@@ -12,6 +12,7 @@ struct ThemeSelectView: View {
     
     @Binding var currentTheme: Theme
     @State var isOnAutoTheme = false
+    @State var signinSheet = false
     let themeManager: ThemeManager = ThemeManager.shared
     
     let Gradients: [Color] = [Color(red: 0.46, green: 0.25, blue: 0.74).opacity(0.8),
@@ -45,7 +46,7 @@ struct ThemeSelectView: View {
                 .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 20))
             } else {
                 Button {
-                    
+                    signinSheet = true
                 } label: {
                     HStack {
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
@@ -173,6 +174,9 @@ struct ThemeSelectView: View {
         }
         .sheet(isPresented: $isOnAutoTheme) {
             AutoThemeSelectView(isOnAutoTheme: $isOnAutoTheme, startDate: Date(), endDate: Date())
+        }
+        .fullScreenCover(isPresented: $signinSheet) {
+            LoginView()
         }
     }
 }

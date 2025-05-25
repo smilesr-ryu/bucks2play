@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FindPasswordView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @State var id: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -17,7 +19,7 @@ struct FindPasswordView: View {
             TopBar(
                 title: "비밀번호 찾기",
                 back: {
-                    
+                    dismiss()
                 })
             
             FormTextField(

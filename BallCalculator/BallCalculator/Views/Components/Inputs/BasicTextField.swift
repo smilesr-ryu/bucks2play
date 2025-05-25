@@ -11,6 +11,8 @@ struct BasicTextField<LeftIcon: View, RightIcon: View>: View {
     var prompt: String?
     @Binding var text: String
     var type: TextFieldStyleType
+    var isSecure: Bool
+    var isEnabled: Bool
 
     private let leftIconBuilder: () -> LeftIcon
     private let rightIconBuilder: () -> RightIcon
@@ -19,6 +21,7 @@ struct BasicTextField<LeftIcon: View, RightIcon: View>: View {
         prompt: String? = nil,
         text: Binding<String>,
         type: TextFieldStyleType = .normal,
+        isSecure: Bool = false,
         isEnabled: Bool = true,
         @ViewBuilder leftIcon: @escaping () -> LeftIcon = { EmptyView() },
         @ViewBuilder rightIcon: @escaping () -> RightIcon = { EmptyView() }
@@ -26,6 +29,8 @@ struct BasicTextField<LeftIcon: View, RightIcon: View>: View {
         self.prompt = prompt
         self._text = text
         self.type = type
+        self.isSecure = isSecure
+        self.isEnabled = isEnabled
         self.leftIconBuilder = leftIcon
         self.rightIconBuilder = rightIcon
     }
@@ -36,12 +41,20 @@ struct BasicTextField<LeftIcon: View, RightIcon: View>: View {
         HStack(spacing: 6) {
             leftIconBuilder()
                 .foregroundStyle(style.iconColor)
-
-            TextField(prompt ?? "", text: $text)
-                .lineLimit(1)
-                .fontStyle(.label1_R)
-                .foregroundColor(style.foregroundColor)
-                .frame(height: 24)
+            
+            if isSecure {
+                SecureField(prompt ?? "", text: $text)
+                    .lineLimit(1)
+                    .fontStyle(.label1_R)
+                    .foregroundColor(style.foregroundColor)
+                    .frame(height: 24)
+            } else {
+                TextField(prompt ?? "", text: $text)
+                    .lineLimit(1)
+                    .fontStyle(.label1_R)
+                    .foregroundColor(style.foregroundColor)
+                    .frame(height: 24)
+            }
 
             rightIconBuilder()
                 .foregroundStyle(style.iconColor)

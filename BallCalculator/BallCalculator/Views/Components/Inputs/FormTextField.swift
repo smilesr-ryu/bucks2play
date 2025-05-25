@@ -11,6 +11,7 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
     var prompt: String?
     @Binding var text: String
     var type: TextFieldStyleType
+    var isSecure: Bool
 
     @ViewBuilder var title: () -> Title
     @ViewBuilder var helper: () -> Helper
@@ -22,6 +23,7 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
         prompt: String? = nil,
         text: Binding<String>,
         type: TextFieldStyleType = .normal,
+        isSecure: Bool = false,
         @ViewBuilder title: @escaping () -> Title = { EmptyView() },
         @ViewBuilder helper: @escaping () -> Helper = { EmptyView() },
         @ViewBuilder trailing: @escaping () -> Trailing = { EmptyView() },
@@ -31,6 +33,7 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
         self.prompt = prompt
         self._text = text
         self.type = type
+        self.isSecure = isSecure
         self.title = title
         self.helper = helper
         self.trailing = trailing
@@ -49,6 +52,7 @@ struct FormTextField<Title: View, Helper: View, Trailing: View, LeftIcon: View, 
                     prompt: prompt,
                     text: $text,
                     type: type,
+                    isSecure: isSecure,
                     leftIcon: leftIcon,
                     rightIcon: rightIcon
                 )

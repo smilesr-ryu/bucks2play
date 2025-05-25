@@ -12,6 +12,7 @@ struct SignInView: View {
     
     @State var id: String = ""
     @State var password: String = ""
+    @State var isSecured: Bool = true
     
     var body: some View {
         VStack(spacing: 0) {
@@ -30,11 +31,26 @@ struct SignInView: View {
             FormTextField(
                 prompt: "비밀번호 입력",
                 text: $password,
+                isSecure: isSecured,
                 title: { Text("비밀번호") },
-                rightIcon: { Image(.eye18) }
+                rightIcon: {
+                    Button {
+                        isSecured.toggle()
+                    } label: {
+                        if isSecured {
+                            Image(.eyeOff18)
+                        } else {
+                            Image(.eye18)
+                        }
+                    }
+                }
             )
             
-            BasicButton("로그인", type: .primary, isEnabled: !id.isEmpty && !password.isEmpty) {
+            BasicButton(
+                "로그인",
+                type: .primary,
+                isEnabled: !id.isEmpty && !password.isEmpty
+            ) {
                 
             }
             .padding(.horizontal, 20)

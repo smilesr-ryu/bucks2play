@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @State var id: String = ""
     @State var name: String = ""
     @State var email: String = ""
@@ -24,7 +26,7 @@ struct SignUpView: View {
                 TopBar(
                     title: "회원가입",
                     back: {
-                        
+                        dismiss()
                     })
                 
                 HStack(spacing: 0) {

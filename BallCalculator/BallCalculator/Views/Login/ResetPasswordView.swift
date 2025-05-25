@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ResetPasswordView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @State var password: String = ""
     @State var passwordCheck: String = ""
     
@@ -16,7 +18,7 @@ struct ResetPasswordView: View {
             TopBar(
                 title: "비밀번호 재설정",
                 back: {
-                    
+                    dismiss()
                 })
             
             FormTextField(

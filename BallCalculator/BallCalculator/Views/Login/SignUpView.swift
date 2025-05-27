@@ -20,6 +20,38 @@ struct SignUpView: View {
     @State var favoritePlayer: String = ""
     @State var myRacket: String = ""
     
+    @State var passwordSecured: Bool = true
+    @State var passwordCheckSecured: Bool = true
+    
+    var authManager: AuthManager = .shared
+    var popupManager: PopupManager = .shared
+    
+    private var isValidUser: Bool {
+        guard !id.isEmpty else { return false }
+        guard !name.isEmpty else { return false }
+        guard !email.isEmpty else { return false }
+        guard !password.isEmpty else { return false }
+        guard !passwordCheck.isEmpty else { return false }
+        return true
+    }
+    
+    private var isValidID: Bool {
+        guard id.count >= 5 else { return false }
+        guard id.range(of: #"^[A-Za-z0-9]+$"#, options: .regularExpression) != nil else { return false }
+        return true
+    }
+    
+    private var isValidEmail: Bool {
+        guard email.range(of: #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#, options: .regularExpression) != nil else { return false }
+        return true
+    }
+    
+    private var isValidPassword: Bool {
+        guard 8...20 ~= password.count else { return false }
+        guard password.range(of: #"^[A-Za-z0-9]+$"#, options: .regularExpression) != nil else { return false }
+        return true
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -51,6 +83,12 @@ struct SignUpView: View {
                                 .foregroundStyle(.black01)
                             Spacer()
                         }
+                    },
+                    helper: {
+                        if !id.isEmpty, !isValidID {
+                            Text("5자 이상의 영문 + 숫자 조합")
+                                .foregroundStyle(.red01)
+                        }
                     }
                 )
                 
@@ -80,12 +118,21 @@ struct SignUpView: View {
                             Spacer()
                         }
                     },
-                    trailing: { RoundedButton("인증 요청", action: {}) }
+                    trailing: {
+                        RoundedButton(
+                            "인증 요청",
+                            isEnabled: isValidEmail,
+                            action: {
+                                
+                            }
+                        )
+                    }
                 )
                 
                 FormTextField(
                     prompt: "8~20자 이내의 영문 + 숫자",
                     text: $password,
+                    isSecure: passwordSecured,
                     title: {
                         HStack(spacing: 2) {
                             Text("*")
@@ -95,12 +142,29 @@ struct SignUpView: View {
                             Spacer()
                         }
                     },
-                    rightIcon: { Image(.eye18) }
+                    helper: {
+                        if !password.isEmpty, !isValidPassword {
+                            Text("8~20자 이내의 영문 + 숫자")
+                                .foregroundStyle(.red01)
+                        }
+                    },
+                    rightIcon: {
+                        Button {
+                            passwordSecured.toggle()
+                        } label: {
+                            if passwordSecured {
+                                Image(.eyeOff18)
+                            } else {
+                                Image(.eye18)
+                            }
+                        }
+                    }
                 )
                 
                 FormTextField(
                     prompt: "비밀번호 재입력",
                     text: $passwordCheck,
+                    isSecure: passwordCheckSecured,
                     title: {
                         HStack(spacing: 2) {
                             Text("*")
@@ -110,7 +174,23 @@ struct SignUpView: View {
                             Spacer()
                         }
                     },
-                    rightIcon: { Image(.eye18) }
+                    helper: {
+                        if !passwordCheck.isEmpty && password != passwordCheck {
+                            Text("비밀번호가 일치하지 않습니다.")
+                                .foregroundStyle(.red01)
+                        }
+                    },
+                    rightIcon: {
+                        Button {
+                            passwordCheckSecured.toggle()
+                        } label: {
+                            if passwordCheckSecured {
+                                Image(.eyeOff18)
+                            } else {
+                                Image(.eye18)
+                            }
+                        }
+                    }
                 )
                 
                 FormTextField(
@@ -199,8 +279,19 @@ struct SignUpView: View {
                     }
                 )
                 
-                BasicButton("회원가입", type: .primary, isEnabled: true) {
-                    
+                BasicButton("회원가입", type: .primary, isEnabled: isValidUser) {
+                    authManager.signup(
+                        User(
+                            id: id,
+                            email: email,
+                            nickname: name,
+                            gender: selectedGender,
+                            favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
+                            racket: myRacket.isEmpty ? nil : myRacket,
+                            lastLogin: .now
+                        )
+                    )
+                    popupManager.toast = .signUpComplete
                 }
                 .padding(EdgeInsets(top: 40, leading: 20, bottom: 56, trailing: 20))
             }

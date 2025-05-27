@@ -14,6 +14,8 @@ struct SignInView: View {
     @State var password: String = ""
     @State var isSecured: Bool = true
     
+    var authManager: AuthManager = .shared
+    
     var body: some View {
         VStack(spacing: 0) {
             TopBar(
@@ -51,7 +53,7 @@ struct SignInView: View {
                 type: .primary,
                 isEnabled: !id.isEmpty && !password.isEmpty
             ) {
-                
+                authManager.signin(id: id, password: password)
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 16)

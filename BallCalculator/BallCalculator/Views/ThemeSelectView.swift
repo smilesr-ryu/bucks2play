@@ -123,15 +123,23 @@ struct ThemeSelectView: View {
                         Text("테마선택")
                             .fontStyle(.body1_B)
                         
-                        Text("로그인하면 테마가 열려요!")
-                            .fontStyle(.label1_R)
-                            .foregroundColor(.black02)
+                        if authManager.currentUser == nil {
+                            Text("로그인하면 테마가 열려요!")
+                                .fontStyle(.label1_R)
+                                .foregroundColor(.black02)
+                        } else if authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
+                            Text("benefit을 작성하면 테마가 열려요!")
+                                .fontStyle(.label1_R)
+                                .foregroundColor(.black02)
+                        }
                     }
                     
                     Spacer()
                     
-                    TinyButton("작성하기", type: .secondary) {
-                        
+                    if authManager.currentUser != nil,  authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
+                        TinyButton("작성하기", type: .secondary) {
+                            
+                        }
                     }
                 }
                 

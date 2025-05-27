@@ -13,3 +13,15 @@ class AuthManager {
     
     var currentUser: User?
 }
+
+extension AuthManager {
+    func signup(_ user: User) {
+        print("sign up with \(user.id)")
+        self.currentUser = user
+    }
+    
+    func signin(id: String, password: String) {
+        print("sign in with \(id)")
+        self.currentUser = User(id: id, email: "email", nickname: "nickname", lastLogin: .now)
+    }
+}

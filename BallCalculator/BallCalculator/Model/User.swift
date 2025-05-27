@@ -8,13 +8,13 @@
 import Foundation
 
 struct User: Identifiable {
-    let id: String
-    let email: String
-    let nickname: String
-    let gender: Gender
-    let favoritePlayer: String?
-    let racket: String?
-    let lastLogin: Date
+    var id: String
+    var email: String
+    var nickname: String
+    var gender: Gender?
+    var favoritePlayer: String?
+    var racket: String?
+    var lastLogin: Date
 }
 
 enum Gender: String, CaseIterable {

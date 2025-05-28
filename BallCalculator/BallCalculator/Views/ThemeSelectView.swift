@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ThemeSelectView: View {
-    @State var authManager = AuthManager()
+    @State var authManager: AuthManager = .shared
     
     @Binding var currentTheme: Theme
     @State var isOnAutoTheme = false
     @State var signinSheet = false
     let themeManager: ThemeManager = ThemeManager.shared
+    let popupManager: PopupManager = PopupManager.shared
     
     let Gradients: [Color] = [Color(red: 0.46, green: 0.25, blue: 0.74).opacity(0.8),
                               Color(red: 0.91, green: 0.41, blue: 0.22).opacity(0.8),
@@ -145,27 +146,60 @@ struct ThemeSelectView: View {
                 
                 HStack {
                     ForEach(Theme.allCases, id: \.self) { theme in
-                        Button {
-                            currentTheme = theme
-                            UserDefaults.standard.set(theme.rawValue, forKey: "theme")
-                        } label: {
-                            Image("logo_"+theme.rawValue)
-                                .resizable()
-                                .scaledToFit()
-                                .padding(5)
-                                .frame(width: 70, height: 70)
-                                .background {
-                                    Rectangle()
-                                        .foregroundColor(.clear)
-                                        .frame(width: 70, height: 70)
-                                        .background(.white)
-                                        .cornerRadius(10)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .inset(by: 0.75)
-                                                .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
-                                        )
-                                }
+                        if authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
+                            Button {
+                                popupManager.activePopup = .themeOpen
+                            } label: {
+                                Image("logo_"+theme.rawValue)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .frame(width: 70, height: 70)
+                                    .background {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .frame(width: 70, height: 70)
+                                            .background(.white)
+                                            .cornerRadius(10)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .inset(by: 0.75)
+                                                    .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
+                                            )
+                                    }
+                                    .overlay {
+                                        if theme != .aus {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .foregroundStyle(Color(hex: theme.lockedColor).opacity(0.6))
+                                                Image(.lock)
+                                            }
+                                        }
+                                    }
+                            }
+                        } else {
+                            Button {
+                                currentTheme = theme
+                                UserDefaults.standard.set(theme.rawValue, forKey: "theme")
+                            } label: {
+                                Image("logo_"+theme.rawValue)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .frame(width: 70, height: 70)
+                                    .background {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .frame(width: 70, height: 70)
+                                            .background(.white)
+                                            .cornerRadius(10)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .inset(by: 0.75)
+                                                    .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
+                                            )
+                                    }
+                            }
                         }
                         
                         if Theme.allCases.last != theme {

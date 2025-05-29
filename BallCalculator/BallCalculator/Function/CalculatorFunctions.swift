@@ -109,7 +109,7 @@ extension CalculatorView {
             }
 
         case .menu:
-            isPresented = true
+            sheetManager.themeSelectSheetIsPresented = true
             break
             
         default:

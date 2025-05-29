@@ -15,6 +15,7 @@ struct SignInView: View {
     @State var isSecured: Bool = true
     
     var authManager: AuthManager = .shared
+    var sheetManager: SheetManager = .shared
     
     var body: some View {
         VStack(spacing: 0) {
@@ -54,6 +55,7 @@ struct SignInView: View {
                 isEnabled: !id.isEmpty && !password.isEmpty
             ) {
                 authManager.signin(id: id, password: password)
+                sheetManager.loginSheetIsPresented = false
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 16)

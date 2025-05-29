@@ -42,6 +42,8 @@
 		2B728E442DE0531400C1AF6D /* PasswordChangedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */; };
 		2B728E462DE0535700C1AF6D /* SignUpCompletedToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */; };
 		2B728E482DE160DA00C1AF6D /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E472DE160DA00C1AF6D /* CalculatorView.swift */; };
+		2B9791C32DE75406003B506C /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C22DE753EA003B506C /* SheetManager.swift */; };
+		2B9791C62DE8479F003B506C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C52DE8479F003B506C /* UserInfoView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -113,6 +115,8 @@
 		2B728E432DE0531400C1AF6D /* PasswordChangedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangedToast.swift; sourceTree = "<group>"; };
 		2B728E452DE0535700C1AF6D /* SignUpCompletedToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletedToast.swift; sourceTree = "<group>"; };
 		2B728E472DE160DA00C1AF6D /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		2B9791C22DE753EA003B506C /* SheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
+		2B9791C52DE8479F003B506C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -234,6 +238,14 @@
 			path = Toasts;
 			sourceTree = "<group>";
 		};
+		2B9791C42DE84783003B506C /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2B9791C52DE8479F003B506C /* UserInfoView.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		2BAFB5B52DD174E900ADDA57 /* TopBars */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +296,7 @@
 			children = (
 				2B544F9C2DC8C8DD00A0870A /* Components */,
 				2B544F812DC81ABB00A0870A /* Login */,
+				2B9791C42DE84783003B506C /* UserInfo */,
 				C532B4982AD4D669006E298D /* ContentView.swift */,
 				C5339C1C2AE50D8900ADCF6B /* ThemeSelectView.swift */,
 				C564C8002B01C5AE00A42261 /* AutoThemeSelectView.swift */,
@@ -314,6 +327,7 @@
 		C564C7FD2B01C26700A42261 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2B9791C22DE753EA003B506C /* SheetManager.swift */,
 				2B544FA22DC8CA3F00A0870A /* AuthManager.swift */,
 				C564C8042B01F47B00A42261 /* ThemeManager.swift */,
 				2B728E312DDF111700C1AF6D /* PopupManager.swift */,
@@ -527,6 +541,8 @@
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
 				2B728E422DE04CE400C1AF6D /* SavedToast.swift in Sources */,
 				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
+				2B9791C62DE8479F003B506C /* UserInfoView.swift in Sources */,
+				2B9791C32DE75406003B506C /* SheetManager.swift in Sources */,
 				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
 				2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */,
 				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,

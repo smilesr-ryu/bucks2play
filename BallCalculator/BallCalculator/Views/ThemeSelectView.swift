@@ -11,10 +11,11 @@ struct ThemeSelectView: View {
     @State var authManager: AuthManager = .shared
     
     @Binding var currentTheme: Theme
-    @State var isOnAutoTheme = false
-    @State var signinSheet = false
+
     let themeManager: ThemeManager = ThemeManager.shared
     let popupManager: PopupManager = PopupManager.shared
+    
+    @Bindable var sheetManager: SheetManager = .shared
     
     let Gradients: [Color] = [Color(red: 0.46, green: 0.25, blue: 0.74).opacity(0.8),
                               Color(red: 0.91, green: 0.41, blue: 0.22).opacity(0.8),
@@ -47,7 +48,7 @@ struct ThemeSelectView: View {
                 .padding(EdgeInsets(top: 32, leading: 16, bottom: 32, trailing: 20))
             } else {
                 Button {
-                    signinSheet = true
+                    sheetManager.loginSheetIsPresented = true
                 } label: {
                     HStack {
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
@@ -87,7 +88,7 @@ struct ThemeSelectView: View {
                     Spacer()
                     
                     TinyButton("기간설정", type: .secondary) {
-                        
+                        sheetManager.autoThemeSelectSheetIsPresented = true
                     }
                 }
                 
@@ -214,10 +215,10 @@ struct ThemeSelectView: View {
             
             Spacer()
         }
-        .sheet(isPresented: $isOnAutoTheme) {
-            AutoThemeSelectView(isOnAutoTheme: $isOnAutoTheme, startDate: Date(), endDate: Date())
+        .sheet(isPresented: $sheetManager.autoThemeSelectSheetIsPresented) {
+            AutoThemeSelectView(isOnAutoTheme: $sheetManager.autoThemeSelectSheetIsPresented, startDate: Date(), endDate: Date())
         }
-        .fullScreenCover(isPresented: $signinSheet) {
+        .fullScreenCover(isPresented: $sheetManager.loginSheetIsPresented) {
             LoginView()
         }
     }

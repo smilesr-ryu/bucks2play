@@ -15,7 +15,6 @@ struct CalculatorView: View {
     @State var currentOperation: Operation?
     @State var result: Double = 0.0
     @State var flag = false
-    @State var isPresented = false
     @State var currentTheme: Theme
     @State var selectedButton: CalcButton
     @State var selectedImageName = ""
@@ -26,6 +25,8 @@ struct CalculatorView: View {
         [.delete, .divide, .multiply, .minus, .plus],
         [.menu, .equal]
     ]
+    
+    @Bindable var sheetManager: SheetManager = .shared
 
     var body: some View {
         ZStack {
@@ -123,7 +124,7 @@ struct CalculatorView: View {
             }
             
         }
-        .sheet(isPresented: $isPresented) {
+        .sheet(isPresented: $sheetManager.themeSelectSheetIsPresented) {
             ThemeSelectView(currentTheme: $currentTheme)
                 .presentationDetents([.fraction(0.6)])
                 .presentationDragIndicator(.visible)

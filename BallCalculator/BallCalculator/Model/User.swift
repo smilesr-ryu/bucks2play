@@ -10,7 +10,8 @@ import Foundation
 struct User: Identifiable {
     var id: String
     var email: String
-    var nickname: String
+    var name: String
+    var nickname: String?
     var gender: Gender?
     var favoritePlayer: String?
     var racket: String?

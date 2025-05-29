@@ -15,4 +15,5 @@ class SheetManager {
     var autoThemeSelectSheetIsPresented: Bool = false
     
     var loginSheetIsPresented: Bool = false
+    var userInfoSheetIsPresented: Bool = false
 }

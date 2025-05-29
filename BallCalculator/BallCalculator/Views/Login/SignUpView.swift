@@ -284,7 +284,8 @@ struct SignUpView: View {
                         User(
                             id: id,
                             email: email,
-                            nickname: name,
+                            name: name,
+                            nickname: nickname,
                             gender: selectedGender,
                             favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
                             racket: myRacket.isEmpty ? nil : myRacket,

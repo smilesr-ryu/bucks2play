@@ -33,7 +33,7 @@ struct ThemeSelectView: View {
                             .fontStyle(.label1_B)
                             .foregroundStyle(.black02)
                             .frame(height: 18)
-                        Text("\(user.nickname) 님")
+                        Text("\(user.nickname ?? user.name) 님")
                             .fontStyle(.display2_B)
                             .frame(height: 28)
                     }
@@ -41,7 +41,7 @@ struct ThemeSelectView: View {
                     Spacer()
                     
                     TinyButton("내 정보", type: .primary) {
-                        
+                        sheetManager.userInfoSheetIsPresented = true
                     }
                 }
                 .foregroundStyle(.black01)
@@ -220,6 +220,9 @@ struct ThemeSelectView: View {
         }
         .fullScreenCover(isPresented: $sheetManager.loginSheetIsPresented) {
             LoginView()
+        }
+        .fullScreenCover(isPresented: $sheetManager.userInfoSheetIsPresented) {
+            UserInfoView()
         }
     }
 }

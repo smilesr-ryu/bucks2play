@@ -44,6 +44,7 @@
 		2B728E482DE160DA00C1AF6D /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E472DE160DA00C1AF6D /* CalculatorView.swift */; };
 		2B9791C32DE75406003B506C /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C22DE753EA003B506C /* SheetManager.swift */; };
 		2B9791C62DE8479F003B506C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C52DE8479F003B506C /* UserInfoView.swift */; };
+		2B9791C82DE85211003B506C /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C72DE85211003B506C /* EditUserInfoView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
@@ -117,6 +118,7 @@
 		2B728E472DE160DA00C1AF6D /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		2B9791C22DE753EA003B506C /* SheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
 		2B9791C52DE8479F003B506C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		2B9791C72DE85211003B506C /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9791C52DE8479F003B506C /* UserInfoView.swift */,
+				2B9791C72DE85211003B506C /* EditUserInfoView.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,
+				2B9791C82DE85211003B506C /* EditUserInfoView.swift in Sources */,
 				C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */,
 				2B728E482DE160DA00C1AF6D /* CalculatorView.swift in Sources */,
 				2B728E302DD3E14900C1AF6D /* SignUpView.swift in Sources */,

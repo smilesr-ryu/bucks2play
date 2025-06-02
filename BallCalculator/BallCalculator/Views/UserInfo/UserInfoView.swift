@@ -142,11 +142,21 @@ struct UserInfoView: View {
                             .frame(height: 44)
                             .padding(.leading, 20)
                             
-                            BasicButton(
-                                "수정하기",
-                                type: .primary,
-                            ) {
-                                
+                            
+                            NavigationLink {
+                                EditUserInfoView()
+                            } label: {
+                                Text("수정하기")
+                                    .fontStyle(.body1_B)
+                                    .frame(height: 24)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 12)
+                                    .padding(.horizontal, 18)
+                                    .foregroundStyle(.white01)
+                                    .background {
+                                        Color.black01
+                                    }
+                                    .cornerRadius(12)
                             }
                             .padding(EdgeInsets(top: 12, leading: 20, bottom: 16, trailing: 20))
                             

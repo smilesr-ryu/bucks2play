@@ -24,4 +24,8 @@ extension AuthManager {
         print("sign in with \(id)")
         self.currentUser = User(id: id, email: "email", name: "name", nickname: "nickname", lastLogin: .now)
     }
+    
+    func updateInfo(_ user: User) {
+        self.currentUser = user
+    }
 }

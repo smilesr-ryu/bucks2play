@@ -47,6 +47,7 @@
 		2B9791C82DE85211003B506C /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C72DE85211003B506C /* EditUserInfoView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
 		2BFA8EB42DF1AB370019F47A /* PopupWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8EB32DF1AB2F0019F47A /* PopupWindowManager.swift */; };
+		2BFA8EB62DF1C0C90019F47A /* FindAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8EB52DF1C0C90019F47A /* FindAccountView.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -122,6 +123,7 @@
 		2B9791C72DE85211003B506C /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		2BFA8EB32DF1AB2F0019F47A /* PopupWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupWindowManager.swift; sourceTree = "<group>"; };
+		2BFA8EB52DF1C0C90019F47A /* FindAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountView.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				2B544F7E2DC81ABB00A0870A /* LoginView.swift */,
 				2B728E292DD3438000C1AF6D /* SignInView.swift */,
+				2BFA8EB52DF1C0C90019F47A /* FindAccountView.swift */,
 				2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */,
 				2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */,
 				2B728E2F2DD3E14900C1AF6D /* SignUpView.swift */,
@@ -534,6 +537,7 @@
 				2B728E3F2DE04C1100C1AF6D /* UnregisteredPopup.swift in Sources */,
 				2B544FA72DC8CFDF00A0870A /* BasicButton.swift in Sources */,
 				2B544FB22DC918C900A0870A /* TextFieldStyle.swift in Sources */,
+				2BFA8EB62DF1C0C90019F47A /* FindAccountView.swift in Sources */,
 				C532B4992AD4D669006E298D /* ContentView.swift in Sources */,
 				C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */,
 				2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */,

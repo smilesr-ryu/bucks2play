@@ -56,6 +56,18 @@ extension AuthManager {
         // 예: Firebase.auth().signIn(with: firebaseCredential)
     }
     
+    func logout() {
+        print("로그아웃: \(currentUser?.name ?? "알 수 없는 사용자")")
+        
+        // 현재 사용자 정보 초기화
+        self.currentUser = nil
+        
+        // TODO: Firebase 연동 시 여기에 Firebase 로그아웃 로직 추가
+        // 예: try Auth.auth().signOut()
+        
+        print("로그아웃 완료")
+    }
+    
     func updateInfo(_ user: User) {
         self.currentUser = user
     }

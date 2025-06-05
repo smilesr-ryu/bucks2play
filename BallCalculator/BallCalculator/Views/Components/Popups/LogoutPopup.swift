@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LogoutPopup: View {
+    @State private var popupManager = PopupManager.shared
+    @State private var authManager = AuthManager.shared
+    
     var body: some View {
         ZStack {
             Color.black01.opacity(0.6)
@@ -26,10 +29,14 @@ struct LogoutPopup: View {
                 
                 HStack(spacing: 16) {
                     BasicButton("취소", type: .secondary) {
-                        
+                        // popup 닫기
+                        popupManager.activePopup = nil
                     }
                     BasicButton("로그아웃", type: .primary) {
-                        
+                        // 로그아웃 실행
+                        authManager.logout()
+                        // popup 닫기
+                        popupManager.activePopup = nil
                     }
                 }
                 .padding(.horizontal, 20)

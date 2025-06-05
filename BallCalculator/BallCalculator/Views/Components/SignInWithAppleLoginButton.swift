@@ -7,9 +7,11 @@
 
 import SwiftUI
 import AuthenticationServices
-import FirebaseAuth
 
 struct SignInWithAppleButtonView: View {
+    @State private var authManager = AuthManager.shared
+    @State private var sheetManager = SheetManager.shared
+    
     var body: some View {
         SignInWithAppleButton(.signIn, onRequest: configure, onCompletion: handle)
             .signInWithAppleButtonStyle(.black)
@@ -24,26 +26,9 @@ struct SignInWithAppleButtonView: View {
         switch result {
         case .success(let authResults):
             if let appleIDCredential = authResults.credential as? ASAuthorizationAppleIDCredential {
-                guard let token = appleIDCredential.identityToken,
-                      let tokenString = String(data: token, encoding: .utf8) else {
-                    print("토큰 가져오기 실패")
-                    return
-                }
-
-                let credential = OAuthProvider.credential(
-                    providerID: .apple,
-                    idToken: tokenString,
-                    rawNonce: "",
-                    accessToken: nil
-                )
-
-                Auth.auth().signIn(with: credential) { authResult, error in
-                    if let error = error {
-                        print("Firebase 로그인 실패: \(error.localizedDescription)")
-                    } else {
-                        print("Apple + Firebase 로그인 성공!")
-                    }
-                }
+                // AuthManager를 통해 Apple 로그인 처리
+                authManager.signinWithApple(credential: appleIDCredential)
+                sheetManager.loginSheetIsPresented = false
             }
         case .failure(let error):
             print("Apple 로그인 실패: \(error.localizedDescription)")

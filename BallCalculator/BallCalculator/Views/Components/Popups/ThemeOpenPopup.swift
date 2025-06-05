@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ThemeOpenPopup: View {
     @State private var popupManager = PopupManager.shared
+    @State private var sheetManager = SheetManager.shared
     
     var body: some View {
         ZStack {
@@ -31,7 +32,8 @@ struct ThemeOpenPopup: View {
                         popupManager.activePopup = nil
                     }
                     BasicButton("작성하기", type: .primary) {
-                        
+                        popupManager.activePopup = nil
+                        sheetManager.userInfoSheetIsPresented = true
                     }
                 }
                 .padding(.horizontal, 20)

@@ -46,6 +46,7 @@
 		2B9791C62DE8479F003B506C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C52DE8479F003B506C /* UserInfoView.swift */; };
 		2B9791C82DE85211003B506C /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9791C72DE85211003B506C /* EditUserInfoView.swift */; };
 		2BAFB5B72DD1750000ADDA57 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFB5B62DD1750000ADDA57 /* TopBar.swift */; };
+		2BFA8EB42DF1AB370019F47A /* PopupWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA8EB32DF1AB2F0019F47A /* PopupWindowManager.swift */; };
 		C532B4972AD4D669006E298D /* BallCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4962AD4D669006E298D /* BallCalculatorApp.swift */; };
 		C532B4992AD4D669006E298D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532B4982AD4D669006E298D /* ContentView.swift */; };
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		2B9791C52DE8479F003B506C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		2B9791C72DE85211003B506C /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		2BAFB5B62DD1750000ADDA57 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		2BFA8EB32DF1AB2F0019F47A /* PopupWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupWindowManager.swift; sourceTree = "<group>"; };
 		C532B4932AD4D669006E298D /* BallCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532B4962AD4D669006E298D /* BallCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallCalculatorApp.swift; sourceTree = "<group>"; };
 		C532B4982AD4D669006E298D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		C564C7FD2B01C26700A42261 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2BFA8EB32DF1AB2F0019F47A /* PopupWindowManager.swift */,
 				2B9791C22DE753EA003B506C /* SheetManager.swift */,
 				2B544FA22DC8CA3F00A0870A /* AuthManager.swift */,
 				C564C8042B01F47B00A42261 /* ThemeManager.swift */,
@@ -541,6 +544,7 @@
 				2B544FB42DC9578000A0870A /* BasicTextField.swift in Sources */,
 				2B728E362DDF117B00C1AF6D /* Toast.swift in Sources */,
 				C564C8012B01C5AE00A42261 /* AutoThemeSelectView.swift in Sources */,
+				2BFA8EB42DF1AB370019F47A /* PopupWindowManager.swift in Sources */,
 				2B544F8D2DC81B7500A0870A /* User.swift in Sources */,
 				C5D195802ADA6F130079E799 /* CalcButton.swift in Sources */,
 				2B728E422DE04CE400C1AF6D /* SavedToast.swift in Sources */,

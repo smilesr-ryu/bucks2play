@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ThemeOpenPopup: View {
+    @State private var popupManager = PopupManager.shared
+    
     var body: some View {
         ZStack {
             Color.black01.opacity(0.6)
@@ -26,7 +28,7 @@ struct ThemeOpenPopup: View {
                 
                 HStack(spacing: 16) {
                     BasicButton("취소", type: .secondary) {
-                        
+                        popupManager.activePopup = nil
                     }
                     BasicButton("작성하기", type: .primary) {
                         

@@ -16,4 +16,12 @@ class SheetManager {
     
     var loginSheetIsPresented: Bool = false
     var userInfoSheetIsPresented: Bool = false
+    
+    /// 모든 sheet를 닫는 메서드
+    func dismissAllSheets() {
+        themeSelectSheetIsPresented = false
+        autoThemeSelectSheetIsPresented = false
+        loginSheetIsPresented = false
+        userInfoSheetIsPresented = false
+    }
 }

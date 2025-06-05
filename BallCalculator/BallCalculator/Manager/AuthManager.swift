@@ -62,10 +62,28 @@ extension AuthManager {
         // 현재 사용자 정보 초기화
         self.currentUser = nil
         
+        // 모든 sheet 닫기
+        SheetManager.shared.dismissAllSheets()
+        
         // TODO: Firebase 연동 시 여기에 Firebase 로그아웃 로직 추가
         // 예: try Auth.auth().signOut()
         
         print("로그아웃 완료")
+    }
+    
+    func deleteAccount() {
+        print("회원탈퇴: \(currentUser?.name ?? "알 수 없는 사용자")")
+        
+        // 현재 사용자 정보 초기화
+        self.currentUser = nil
+        
+        // 모든 sheet 닫기
+        SheetManager.shared.dismissAllSheets()
+        
+        // TODO: Firebase 연동 시 여기에 Firebase 회원탈퇴 로직 추가
+        // 예: user.delete() 및 관련 데이터 삭제
+        
+        print("회원탈퇴 완료")
     }
     
     func updateInfo(_ user: User) {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DeleteAccountPopup: View {
+    @State private var popupManager = PopupManager.shared
+    @State private var authManager = AuthManager.shared
+    
     var body: some View {
         ZStack {
             Color.black01.opacity(0.6)
@@ -32,10 +35,14 @@ struct DeleteAccountPopup: View {
                 
                 HStack(spacing: 16) {
                     BasicButton("탈퇴하기", type: .secondary) {
-                        
+                        // 회원탈퇴 실행
+                        authManager.deleteAccount()
+                        // popup 닫기
+                        popupManager.activePopup = nil
                     }
                     BasicButton("아니요", type: .primary) {
-                        
+                        // popup 닫기
+                        popupManager.activePopup = nil
                     }
                 }
                 .padding(.horizontal, 20)

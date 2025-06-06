@@ -140,14 +140,41 @@ struct ThemeSelectView: View {
                     
                     if authManager.currentUser != nil,  authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
                         TinyButton("작성하기", type: .secondary) {
-                            
+                            sheetManager.userInfoSheetIsPresented = true
                         }
                     }
                 }
                 
                 HStack {
                     ForEach(Theme.allCases, id: \.self) { theme in
-                        if authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
+                        if authManager.currentUser == nil {
+                            Image("logo_"+theme.rawValue)
+                                .resizable()
+                                .scaledToFit()
+                                .padding(5)
+                                .frame(width: 70, height: 70)
+                                .background {
+                                    Rectangle()
+                                        .foregroundColor(.clear)
+                                        .frame(width: 70, height: 70)
+                                        .background(.white)
+                                        .cornerRadius(10)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .inset(by: 0.75)
+                                                .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
+                                        )
+                                }
+                                .overlay {
+                                    if theme != .aus {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .foregroundStyle(Color(hex: theme.lockedColor).opacity(0.6))
+                                            Image(.lock)
+                                        }
+                                    }
+                                }
+                        } else if authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
                             Button {
                                 popupManager.activePopup = .themeOpen
                             } label: {

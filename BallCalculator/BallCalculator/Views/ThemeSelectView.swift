@@ -242,7 +242,7 @@ struct ThemeSelectView: View {
             
             Spacer()
         }
-        .sheet(isPresented: $sheetManager.autoThemeSelectSheetIsPresented) {
+        .fullScreenCover(isPresented: $sheetManager.autoThemeSelectSheetIsPresented) {
             AutoThemeSelectView(isOnAutoTheme: $sheetManager.autoThemeSelectSheetIsPresented, startDate: Date(), endDate: Date())
         }
         .fullScreenCover(isPresented: $sheetManager.loginSheetIsPresented) {

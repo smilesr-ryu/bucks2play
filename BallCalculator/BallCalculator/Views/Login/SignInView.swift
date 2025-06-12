@@ -61,9 +61,14 @@ struct SignInView: View {
             .padding(.vertical, 16)
             
             HStack {
-                Text("내 계정 찾기")
-                    .fontStyle(.label1_R)
-                    .underline()
+                NavigationLink {
+                    FindAccountView()
+                } label: {
+                    Text("내 계정 찾기")
+                        .fontStyle(.label1_R)
+                        .foregroundStyle(.black01)
+                        .underline()
+                }
                 
                 Rectangle()
                     .frame(width: 1, height: 12)

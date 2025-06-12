@@ -1,20 +1,21 @@
 import SwiftUI
 
 struct AutoThemeSelectView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @Binding var isOnAutoTheme: Bool
     let themeManager: ThemeManager = ThemeManager.shared
     @State var startDate: Date
     @State var endDate: Date
     
     var body: some View {
-        VStack(alignment: .center, spacing: 40) {
-            Image("ball")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 70, height: 70)
+        VStack(spacing: 0) {
+            TopBar(title: "기간 설정", close:  {
+                dismiss()
+            })
             
             ForEach(Theme.allCases, id: \.self) { theme in
-                HStack {
+                HStack(spacing: 14) {
                     Image("logo_" + theme.rawValue)
                         .resizable()
                         .scaledToFit()
@@ -33,7 +34,7 @@ struct AutoThemeSelectView: View {
                                 )
                         }
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 14) {
                         Text(theme.periodName)
                             .font(Font.custom("NotoSansKR-Regular", size: 14))
                             .bold()
@@ -55,47 +56,30 @@ struct AutoThemeSelectView: View {
                         .padding(.horizontal, 5)
                     }
                 }
-                .padding(.horizontal, 5)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 20)
             }
             
-            VStack(spacing: 70) {
-                Button(action: {
+            Spacer()
+            
+            HStack(spacing: 16) {
+                BasicButton("대회기간 초기화", type: .secondary) {
                     themeManager.initializeDates()
                     isOnAutoTheme.toggle()
-                }) {
-                    Text("대회 기간으로 초기화")
-                        .font(Font.custom("NotoSansKR-Regular", size: 13))
-                        .bold()
-                        .foregroundColor(Color(red: 0.93, green: 0.93, blue: 0.93))
-                        .background(
-                            Rectangle()
-                                .foregroundColor(.clear)
-                                .frame(width: 350, height: 70)
-                                .background(Color(red: 0.34, green: 0.34, blue: 0.34))
-                                .cornerRadius(20)
-                        )
                 }
-                
-                
-                Button(action: {
+                BasicButton("저장하기", type: .primary) {
+                    themeManager.initializeDates()
                     isOnAutoTheme.toggle()
-                }) {
-                    Text("창닫기")
-                        .font(Font.custom("NotoSansKR-Regular", size: 13))
-                        .bold()
-                        .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
-                        .background(
-                            Rectangle()
-                                .foregroundColor(.clear)
-                                .frame(width: 350, height: 70)
-                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                                .cornerRadius(20)
-                        )
                 }
             }
-            .padding(.top, 40)
+            .padding(.vertical, 16)
+            .padding(.horizontal, 20)
             
         }
         .padding(10)
     }
+}
+
+#Preview {
+    AutoThemeSelectView(isOnAutoTheme: .constant(true), startDate: .now, endDate: .now)
 }

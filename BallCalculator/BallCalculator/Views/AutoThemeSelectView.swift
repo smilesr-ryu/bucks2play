@@ -68,7 +68,6 @@ struct AutoThemeSelectView: View {
                     isOnAutoTheme.toggle()
                 }
                 BasicButton("저장하기", type: .primary) {
-                    themeManager.initializeDates()
                     isOnAutoTheme.toggle()
                 }
             }

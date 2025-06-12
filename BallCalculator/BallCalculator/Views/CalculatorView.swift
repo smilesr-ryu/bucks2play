@@ -19,15 +19,14 @@ struct CalculatorView: View {
     @State var selectedButton: CalcButton
     @State var selectedImageName = ""
     let buttons: [[CalcButton]] = [
-        [.clear, .seven, .four, .one, .zero],
-        [.negative, .eight, .five, .two, .zerozero],
+        [.clear, .seven, .four, .one, .menu],
+        [.negative, .eight, .five, .two, .zero],
         [.percent, .nine, .six, .three, .decimal],
-        [.delete, .divide, .multiply, .minus, .plus],
-        [.menu, .equal]
+        [.divide, .multiply, .minus, .plus, .equal]
     ]
     
     @Bindable var sheetManager: SheetManager = .shared
-
+    
     var body: some View {
         ZStack {
             Color(hex: currentTheme.bgColor).edgesIgnoringSafeArea(.all)
@@ -37,47 +36,51 @@ struct CalculatorView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer()
-                Image("themelogo_"+currentTheme.rawValue)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: currentTheme == .aus || currentTheme == .us ? 25 : 40)
-                Spacer()
-                // Text display (계산된 숫자)
-                HStack {
-                    Spacer()
-                    // SwiftUI Text 기본 속성에 border가 없어서 shadow로 처리
-                    Text(display)
-                        .font(Font.custom("NotoSansKR-Bold", size: 60))
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .shadow(color: .black, radius: 0.4)
-                        .foregroundColor(.white)
-                        .padding(20)
-                        .lineLimit(1) // 텍스트를 한 줄로 제한
-                        .truncationMode(.tail) // 생략 부호를 텍스트 끝에 추가
+                //                Spacer()
+                VStack(spacing: 16) {
+                    Image("themelogo_"+currentTheme.rawValue)
+                        .resizable()
+                        .frame(width: 130, height: 40)
+                        .padding(.top, 20)
+                    
+                    // Text display (계산된 숫자)
+                    HStack {
+                        Spacer()
+                        // SwiftUI Text 기본 속성에 border가 없어서 shadow로 처리
+                        Text(display)
+                            .font(Font.custom("NotoSansKR-Bold", size: 60))
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .shadow(color: .black, radius: 0.4)
+                            .foregroundColor(.white)
+                            .padding(20)
+                            .lineLimit(1) // 텍스트를 한 줄로 제한
+                            .truncationMode(.tail) // 생략 부호를 텍스트 끝에 추가
                         
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        // 내부 그림자 처리
+                            .fill(
+                                .shadow(.inner(color: .black.opacity(0.5), radius: 3, x: 2, y: 2))
+                                .shadow(.inner(color: .black.opacity(0.5), radius: 3, x: -2, y: -2))
+                            )
+                            .stroke(.black, lineWidth: 1.5)
+                            .foregroundColor(Color(hex: currentTheme.textBgColor))
+                            .frame(height: 137)
+                    )
                 }
-                .background(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    // 내부 그림자 처리
-                        .fill(
-                            .shadow(.inner(color: .black.opacity(0.5), radius: 3, x: 2, y: 2))
-                            .shadow(.inner(color: .black.opacity(0.5), radius: 3, x: -2, y: -2))
-                        )
-                        .stroke(.black, lineWidth: 1.5)
-                        .foregroundColor(Color(hex: currentTheme.textBgColor))
-                        .frame(height: 150)
-                )
-                .padding()
+                .padding(.horizontal, 20)
+                .padding(.top, 54)
                 
+                Spacer()
                 
                 // Our buttons
-                HStack {
+                HStack(spacing: 10) {
                     ForEach(buttons, id: \.self) { col in
                         VStack(spacing: 10) {
                             ForEach(col, id: \.self) { item in
@@ -88,28 +91,19 @@ struct CalculatorView: View {
                                     self.didTap(button: item)
                                 }, label: {
                                     if (item == .one || item == .nine || item == .plus || item == .minus || item == .divide || item == .equal || item == .zerozero || item == .negative || item == .delete || item == .menu || item == .percent || item == .multiply) {
-                                        if (item == selectedButton && (item == .plus || item == .minus || item == .divide || item == .multiply)) {
-                                            Image("p_"+item.imageName+"_"+currentTheme.rawValue)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
-                                                .padding(.top, item == .one ? -2: 0)
-                                                .padding(.top, item == .nine ? -4: 0)
-                                        } else {
-                                            Image(item.imageName+"_"+currentTheme.rawValue)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
-                                                .padding(.top, item == .one ? -2: 0)
-                                                .padding(.top, item == .nine ? -4: 0)
-                                        }
+                                        Image(item.imageName+"_"+currentTheme.rawValue)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+//                                            .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
+//                                            .padding(.top, item == .one ? -2: 0)
+//                                            .padding(.top, item == .nine ? -4: 0)
                                     } else {
                                         Image(item.imageName)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
-                                            .padding(.top, item == .one ? -2: 0)
-                                            .padding(.top, item == .nine ? -4: 0)
+//                                            .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
+//                                            .padding(.top, item == .one ? -2: 0)
+//                                            .padding(.top, item == .nine ? -4: 0)
                                     }
                                     
                                     

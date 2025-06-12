@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "equal_us.png",
+      "filename" : "type=usopen_button.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "type=usopen_button 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "type=usopen_button 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

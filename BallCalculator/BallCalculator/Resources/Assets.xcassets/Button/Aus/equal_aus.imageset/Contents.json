@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "equal_aus.png",
+      "filename" : "type=ausopen_button.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "type=ausopen_button 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "type=ausopen_button 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

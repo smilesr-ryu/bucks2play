@@ -20,7 +20,7 @@ struct CalculatorView: View {
     @State var selectedImageName = ""
     let buttons: [[CalcButton]] = [
         [.clear, .seven, .four, .one, .menu],
-        [.negative, .eight, .five, .two, .zero],
+        [.negative, .eight, .five, .two, .zerozero],
         [.percent, .nine, .six, .three, .decimal],
         [.divide, .multiply, .minus, .plus, .equal]
     ]
@@ -94,13 +94,13 @@ struct CalculatorView: View {
                                         Image(item.imageName+"_"+currentTheme.rawValue)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
+                                            .scaleEffect(item == .nine ? 1.2 : 1.0)
+                                            .offset(x: item == .nine ? 2 : 0, y: item == .nine ? -8 : 0)
                                     } else {
                                         Image(item.imageName)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                     }
-                                    
-                                    
                                 })
                             }
                         }

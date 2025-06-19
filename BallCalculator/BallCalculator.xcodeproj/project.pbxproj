@@ -53,7 +53,6 @@
 		C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C532B49A2AD4D66C006E298D /* Assets.xcassets */; };
 		C5339C172AE4FC5400ADCF6B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5339C162AE4FC5400ADCF6B /* Theme.swift */; };
 		C5339C192AE503E300ADCF6B /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5339C182AE503E300ADCF6B /* Operation.swift */; };
-		C5339C1B2AE5096C00ADCF6B /* ButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5339C1A2AE5096C00ADCF6B /* ButtonSize.swift */; };
 		C5339C1D2AE50D8900ADCF6B /* ThemeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5339C1C2AE50D8900ADCF6B /* ThemeSelectView.swift */; };
 		C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5339C1E2AE558BB00ADCF6B /* NotoSansKR-Bold.ttf */; };
 		C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5339C1F2AE558BB00ADCF6B /* NotoSansKR-Regular.ttf */; };
@@ -133,7 +132,6 @@
 		C532B4D52AD639DC006E298D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C5339C162AE4FC5400ADCF6B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C5339C182AE503E300ADCF6B /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		C5339C1A2AE5096C00ADCF6B /* ButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSize.swift; sourceTree = "<group>"; };
 		C5339C1C2AE50D8900ADCF6B /* ThemeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectView.swift; sourceTree = "<group>"; };
 		C5339C1E2AE558BB00ADCF6B /* NotoSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.ttf"; sourceTree = "<group>"; };
 		C5339C1F2AE558BB00ADCF6B /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				C5CED2822ADC003D00487138 /* CalculatorFunctions.swift */,
-				C5339C1A2AE5096C00ADCF6B /* ButtonSize.swift */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -527,7 +524,6 @@
 				C5CED2832ADC003D00487138 /* CalculatorFunctions.swift in Sources */,
 				2B728E442DE0531400C1AF6D /* PasswordChangedToast.swift in Sources */,
 				C5339C192AE503E300ADCF6B /* Operation.swift in Sources */,
-				C5339C1B2AE5096C00ADCF6B /* ButtonSize.swift in Sources */,
 				2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */,
 				2B544FAB2DC8F7C700A0870A /* RoundedButton.swift in Sources */,
 				2B544FA52DC8CCF500A0870A /* ButtonStyle.swift in Sources */,

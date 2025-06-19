@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "nine_aus.png",
+      "filename" : "number9.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "number9 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "number9 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

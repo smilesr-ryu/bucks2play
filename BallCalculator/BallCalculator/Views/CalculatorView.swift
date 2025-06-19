@@ -94,16 +94,10 @@ struct CalculatorView: View {
                                         Image(item.imageName+"_"+currentTheme.rawValue)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-//                                            .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
-//                                            .padding(.top, item == .one ? -2: 0)
-//                                            .padding(.top, item == .nine ? -4: 0)
                                     } else {
                                         Image(item.imageName)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-//                                            .frame(width: buttonWidth(item: item), height: buttonHeight(item: item))
-//                                            .padding(.top, item == .one ? -2: 0)
-//                                            .padding(.top, item == .nine ? -4: 0)
                                     }
                                     
                                     

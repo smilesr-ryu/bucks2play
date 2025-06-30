@@ -18,9 +18,10 @@ struct User: Identifiable {
     var racket: String?
     var lastLogin: Date
     var password: String? // 비밀번호는 로컬에서만 사용
+    var isEmailVerified: Bool = false // 이메일 인증 상태
     
     // 기본 초기화 메서드
-    init(id: String, firebaseUID: String? = nil, email: String, name: String, nickname: String? = nil, gender: Gender? = nil, favoritePlayer: String? = nil, racket: String? = nil, lastLogin: Date = .now, password: String? = nil) {
+    init(id: String, firebaseUID: String? = nil, email: String, name: String, nickname: String? = nil, gender: Gender? = nil, favoritePlayer: String? = nil, racket: String? = nil, lastLogin: Date = .now, password: String? = nil, isEmailVerified: Bool = false) {
         self.id = id
         self.firebaseUID = firebaseUID
         self.email = email
@@ -31,6 +32,7 @@ struct User: Identifiable {
         self.racket = racket
         self.lastLogin = lastLogin
         self.password = password
+        self.isEmailVerified = isEmailVerified
     }
     
     // 회원가입용 초기화 메서드
@@ -45,6 +47,7 @@ struct User: Identifiable {
         self.favoritePlayer = favoritePlayer
         self.racket = racket
         self.lastLogin = .now
+        self.isEmailVerified = false
     }
 }
 

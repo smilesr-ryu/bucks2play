@@ -224,6 +224,7 @@ extension AuthManager {
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
             "lastLogin": user.lastLogin,
+            "isEmailVerified": user.isEmailVerified,
             "updatedAt": FieldValue.serverTimestamp()
         ]
         
@@ -233,6 +234,81 @@ extension AuthManager {
         self.currentUser = user
         
         print("사용자 정보 업데이트 완료: \(user.name)")
+    }
+    
+    // MARK: - Email Verification Methods
+    
+    func sendEmailVerification() async throws {
+        guard let firebaseUser = Auth.auth().currentUser else {
+            throw AuthError.userNotFound
+        }
+        
+        print("이메일 인증 메일 전송 시작: \(firebaseUser.email ?? "")")
+        
+        try await firebaseUser.sendEmailVerification()
+        
+        print("이메일 인증 메일 전송 완료")
+    }
+    
+    func reloadUser() async throws {
+        guard let firebaseUser = Auth.auth().currentUser else {
+            throw AuthError.userNotFound
+        }
+        
+        print("사용자 정보 새로고침 시작")
+        
+        try await firebaseUser.reload()
+        
+        // Firestore에서 최신 정보 가져오기
+        await fetchUserFromFirestore(userId: firebaseUser.uid)
+        
+        print("사용자 정보 새로고침 완료")
+    }
+    
+    func checkEmailVerificationStatus() async throws -> Bool {
+        guard let firebaseUser = Auth.auth().currentUser else {
+            throw AuthError.userNotFound
+        }
+        
+        print("이메일 인증 상태 확인: \(firebaseUser.email ?? "")")
+        
+        // Firebase Auth에서 최신 정보 가져오기
+        try await firebaseUser.reload()
+        
+        let isVerified = firebaseUser.isEmailVerified
+        print("이메일 인증 상태: \(isVerified)")
+        
+        // Firestore 업데이트
+        if isVerified {
+            try await db.collection("users").document(firebaseUser.uid).updateData([
+                "isEmailVerified": true,
+                "updatedAt": FieldValue.serverTimestamp()
+            ])
+            
+            // 현재 사용자 정보 업데이트
+            if var currentUser = self.currentUser {
+                currentUser.isEmailVerified = true
+                self.currentUser = currentUser
+            }
+        }
+        
+        return isVerified
+    }
+    
+    func findUserIdByEmail(_ email: String) async throws -> String? {
+        print("이메일로 사용자 ID 찾기: \(email)")
+        
+        let query = db.collection("users").whereField("email", isEqualTo: email)
+        let snapshot = try await query.getDocuments()
+        
+        if let document = snapshot.documents.first {
+            let userId = document.data()["id"] as? String
+            print("사용자 ID 찾기 완료: \(userId ?? "없음")")
+            return userId
+        }
+        
+        print("사용자 ID를 찾을 수 없음")
+        return nil
     }
     
     // MARK: - UI용 래퍼 메서드들 (동기 인터페이스)
@@ -327,6 +403,68 @@ extension AuthManager {
         }
     }
     
+    func sendEmailVerificationWithCompletion(completion: @escaping (Result<Void, Error>) -> Void) {
+        Task {
+            do {
+                try await sendEmailVerification()
+                DispatchQueue.main.async {
+                    completion(.success(()))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func checkEmailVerificationStatusWithCompletion(completion: @escaping (Result<Bool, Error>) -> Void) {
+        Task {
+            do {
+                let isVerified = try await checkEmailVerificationStatus()
+                DispatchQueue.main.async {
+                    completion(.success(isVerified))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func findUserIdByEmailWithCompletion(_ email: String, completion: @escaping (Result<String?, Error>) -> Void) {
+        Task {
+            do {
+                let userId = try await findUserIdByEmail(email)
+                DispatchQueue.main.async {
+                    completion(.success(userId))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    // MARK: - UI Helper Methods for Existing UI
+    
+    /// 기존 UI의 "인증 요청" 버튼에서 사용할 메서드
+    func requestEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
+        sendEmailVerificationWithCompletion(completion: completion)
+    }
+    
+    /// 이메일 인증 상태 확인 (앱 재시작 시 또는 주기적으로 호출)
+    func verifyEmailStatus(completion: @escaping (Result<Bool, Error>) -> Void) {
+        checkEmailVerificationStatusWithCompletion(completion: completion)
+    }
+    
+    /// 아이디 찾기 기능
+    func findIdByEmail(_ email: String, completion: @escaping (Result<String?, Error>) -> Void) {
+        findUserIdByEmailWithCompletion(email, completion: completion)
+    }
+    
     // MARK: - Private Methods
     
     private func findUserByID(_ userId: String) async throws -> User? {
@@ -375,12 +513,13 @@ extension AuthManager {
                     gender: Gender(rawValue: data["gender"] as? String ?? ""),
                     favoritePlayer: data["favoritePlayer"] as? String,
                     racket: data["racket"] as? String,
-                    lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now
+                    lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now,
+                    isEmailVerified: data["isEmailVerified"] as? Bool ?? false
                 )
                 
                 DispatchQueue.main.async {
                     self.currentUser = user
-                    print("현재 사용자 설정 완료: \(user.name)")
+                    print("현재 사용자 설정 완료: \(user.name), 이메일 인증: \(user.isEmailVerified)")
                 }
             } else {
                 print("Firestore에서 사용자 데이터를 찾을 수 없음: \(userId)")

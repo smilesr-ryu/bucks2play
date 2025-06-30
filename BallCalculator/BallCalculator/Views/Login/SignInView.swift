@@ -13,6 +13,8 @@ struct SignInView: View {
     @State var id: String = ""
     @State var password: String = ""
     @State var isSecured: Bool = true
+    @State var isLoading: Bool = false
+    @State var errorMessage: String = ""
     
     var authManager: AuthManager = .shared
     var sheetManager: SheetManager = .shared
@@ -49,13 +51,20 @@ struct SignInView: View {
                 }
             )
             
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .fontStyle(.caption1_R)
+                    .foregroundStyle(.red)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+            }
+            
             BasicButton(
                 "로그인",
                 type: .primary,
-                isEnabled: !id.isEmpty && !password.isEmpty
+                isEnabled: !id.isEmpty && !password.isEmpty && !isLoading
             ) {
-                authManager.signin(id: id, password: password)
-                sheetManager.loginSheetIsPresented = false
+                performSignIn()
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
@@ -100,6 +109,26 @@ struct SignInView: View {
             Spacer()
         }
         .toolbar(.hidden)
+    }
+    
+    private func performSignIn() {
+        isLoading = true
+        errorMessage = ""
+        
+        authManager.signinWithCompletion(id: id, password: password) { result in
+            isLoading = false
+            
+            switch result {
+            case .success:
+                sheetManager.loginSheetIsPresented = false
+            case .failure(let error):
+                if let authError = error as? AuthError {
+                    errorMessage = authError.errorDescription ?? "로그인에 실패했습니다."
+                } else {
+                    errorMessage = error.localizedDescription
+                }
+            }
+        }
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct LogoutPopup: View {
     @State private var popupManager = PopupManager.shared
     @State private var authManager = AuthManager.shared
+    @State private var isLoading: Bool = false
     
     var body: some View {
         ZStack {
@@ -28,15 +29,13 @@ struct LogoutPopup: View {
                     .padding(.bottom, 8)
                 
                 HStack(spacing: 16) {
-                    BasicButton("취소", type: .secondary) {
+                    BasicButton("취소", type: .secondary, isEnabled: !isLoading) {
                         // popup 닫기
                         popupManager.activePopup = nil
                     }
-                    BasicButton("로그아웃", type: .primary) {
+                    BasicButton("로그아웃", type: .primary, isEnabled: !isLoading) {
                         // 로그아웃 실행
-                        authManager.logout()
-                        // popup 닫기
-                        popupManager.activePopup = nil
+                        performLogout()
                     }
                 }
                 .padding(.horizontal, 20)
@@ -47,6 +46,24 @@ struct LogoutPopup: View {
                     .foregroundStyle(.white01)
             }
             .padding(.horizontal, 28)
+        }
+    }
+    
+    private func performLogout() {
+        isLoading = true
+        
+        authManager.logoutWithCompletion { result in
+            isLoading = false
+            
+            switch result {
+            case .success:
+                // popup 닫기
+                popupManager.activePopup = nil
+            case .failure(let error):
+                print("로그아웃 실패: \(error.localizedDescription)")
+                // 에러가 발생해도 popup은 닫기
+                popupManager.activePopup = nil
+            }
         }
     }
 }

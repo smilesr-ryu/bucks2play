@@ -11,11 +11,20 @@ import AuthenticationServices
 struct SignInWithAppleButtonView: View {
     @State private var authManager = AuthManager.shared
     @State private var sheetManager = SheetManager.shared
+    @State private var errorMessage: String = ""
     
     var body: some View {
-        SignInWithAppleButton(.signIn, onRequest: configure, onCompletion: handle)
-            .signInWithAppleButtonStyle(.black)
-            .frame(height: 45)
+        VStack(spacing: 8) {
+            SignInWithAppleButton(.signIn, onRequest: configure, onCompletion: handle)
+                .signInWithAppleButtonStyle(.black)
+                .frame(height: 45)
+            
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .fontStyle(.caption1_R)
+                    .foregroundStyle(.red)
+            }
+        }
     }
 
     func configure(_ request: ASAuthorizationAppleIDRequest) {
@@ -27,11 +36,21 @@ struct SignInWithAppleButtonView: View {
         case .success(let authResults):
             if let appleIDCredential = authResults.credential as? ASAuthorizationAppleIDCredential {
                 // AuthManager를 통해 Apple 로그인 처리
-                authManager.signinWithApple(credential: appleIDCredential)
-                sheetManager.loginSheetIsPresented = false
+                authManager.signinWithAppleWithCompletion(credential: appleIDCredential) { result in
+                    switch result {
+                    case .success:
+                        sheetManager.loginSheetIsPresented = false
+                    case .failure(let error):
+                        if let authError = error as? AuthError {
+                            errorMessage = authError.errorDescription ?? "Apple 로그인에 실패했습니다."
+                        } else {
+                            errorMessage = error.localizedDescription
+                        }
+                    }
+                }
             }
         case .failure(let error):
-            print("Apple 로그인 실패: \(error.localizedDescription)")
+            errorMessage = error.localizedDescription
         }
     }
 }

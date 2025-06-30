@@ -17,6 +17,8 @@ struct EditUserInfoView: View {
     @State var selectedGender: Gender?
     @State var favoritePlayer: String
     @State var myRacket: String
+    @State var isLoading: Bool = false
+    @State var errorMessage: String = ""
     
     var authManager: AuthManager = .shared
     var popupManager: PopupManager = .shared
@@ -196,26 +198,53 @@ struct EditUserInfoView: View {
                     }
                 )
                 
-                BasicButton("저장하기", type: .primary, isEnabled: isValidUser) {
-                    authManager.updateInfo(
-                        User(
-                            id: id,
-                            email: email,
-                            name: name,
-                            nickname: nickname,
-                            gender: selectedGender,
-                            favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
-                            racket: myRacket.isEmpty ? nil : myRacket,
-                            lastLogin: .now
-                        )
-                    )
-                    popupManager.toast = .saved
-                    dismiss()
+                if !errorMessage.isEmpty {
+                    Text(errorMessage)
+                        .fontStyle(.caption1_R)
+                        .foregroundStyle(.red)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 8)
+                }
+                
+                BasicButton("저장하기", type: .primary, isEnabled: isValidUser && !isLoading) {
+                    performUpdateInfo()
                 }
                 .padding(EdgeInsets(top: 40, leading: 20, bottom: 56, trailing: 20))
             }
         }
         .toolbar(.hidden)
+    }
+    
+    private func performUpdateInfo() {
+        isLoading = true
+        errorMessage = ""
+        
+        let user = User(
+            id: id,
+            email: email,
+            name: name,
+            nickname: nickname.isEmpty ? nil : nickname,
+            gender: selectedGender,
+            favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
+            racket: myRacket.isEmpty ? nil : myRacket,
+            lastLogin: .now
+        )
+        
+        authManager.updateInfoWithCompletion(user) { result in
+            isLoading = false
+            
+            switch result {
+            case .success:
+                popupManager.toast = .saved
+                dismiss()
+            case .failure(let error):
+                if let authError = error as? AuthError {
+                    errorMessage = authError.errorDescription ?? "정보 업데이트에 실패했습니다."
+                } else {
+                    errorMessage = error.localizedDescription
+                }
+            }
+        }
     }
 }
 

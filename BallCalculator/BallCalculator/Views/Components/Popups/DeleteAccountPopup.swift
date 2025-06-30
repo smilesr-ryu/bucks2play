@@ -10,6 +10,7 @@ import SwiftUI
 struct DeleteAccountPopup: View {
     @State private var popupManager = PopupManager.shared
     @State private var authManager = AuthManager.shared
+    @State private var isLoading: Bool = false
     
     var body: some View {
         ZStack {
@@ -34,13 +35,11 @@ struct DeleteAccountPopup: View {
                 .padding(.bottom, 8)
                 
                 HStack(spacing: 16) {
-                    BasicButton("탈퇴하기", type: .secondary) {
+                    BasicButton("탈퇴하기", type: .secondary, isEnabled: !isLoading) {
                         // 회원탈퇴 실행
-                        authManager.deleteAccount()
-                        // popup 닫기
-                        popupManager.activePopup = nil
+                        performDeleteAccount()
                     }
-                    BasicButton("아니요", type: .primary) {
+                    BasicButton("아니요", type: .primary, isEnabled: !isLoading) {
                         // popup 닫기
                         popupManager.activePopup = nil
                     }
@@ -53,6 +52,24 @@ struct DeleteAccountPopup: View {
                     .foregroundStyle(.white01)
             }
             .padding(.horizontal, 28)
+        }
+    }
+    
+    private func performDeleteAccount() {
+        isLoading = true
+        
+        authManager.deleteAccountWithCompletion { result in
+            isLoading = false
+            
+            switch result {
+            case .success:
+                // popup 닫기
+                popupManager.activePopup = nil
+            case .failure(let error):
+                print("회원탈퇴 실패: \(error.localizedDescription)")
+                // 에러가 발생해도 popup은 닫기
+                popupManager.activePopup = nil
+            }
         }
     }
 }

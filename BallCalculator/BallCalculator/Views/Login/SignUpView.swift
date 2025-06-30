@@ -22,6 +22,8 @@ struct SignUpView: View {
     
     @State var passwordSecured: Bool = true
     @State var passwordCheckSecured: Bool = true
+    @State var isLoading: Bool = false
+    @State var errorMessage: String = ""
     
     var authManager: AuthManager = .shared
     var popupManager: PopupManager = .shared
@@ -279,26 +281,58 @@ struct SignUpView: View {
                     }
                 )
                 
-                BasicButton("회원가입", type: .primary, isEnabled: isValidUser) {
-                    authManager.signup(
-                        User(
-                            id: id,
-                            email: email,
-                            name: name,
-                            nickname: nickname,
-                            gender: selectedGender,
-                            favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
-                            racket: myRacket.isEmpty ? nil : myRacket,
-                            lastLogin: .now
-                        )
-                    )
-                    popupManager.toast = .signUpComplete
-                    dismiss()
+                if !errorMessage.isEmpty {
+                    Text(errorMessage)
+                        .fontStyle(.caption1_R)
+                        .foregroundStyle(.red)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 8)
+                }
+                
+                BasicButton("회원가입", type: .primary, isEnabled: isValidUser && !isLoading) {
+                    performSignUp()
                 }
                 .padding(EdgeInsets(top: 40, leading: 20, bottom: 56, trailing: 20))
             }
         }
         .toolbar(.hidden)
+    }
+    
+    private func performSignUp() {
+        guard password == passwordCheck else {
+            errorMessage = "비밀번호가 일치하지 않습니다."
+            return
+        }
+        
+        isLoading = true
+        errorMessage = ""
+        
+        let user = User(
+            id: id,
+            email: email,
+            password: password,
+            name: name,
+            nickname: nickname.isEmpty ? nil : nickname,
+            gender: selectedGender,
+            favoritePlayer: favoritePlayer.isEmpty ? nil : favoritePlayer,
+            racket: myRacket.isEmpty ? nil : myRacket
+        )
+        
+        authManager.signupWithCompletion(user) { result in
+            isLoading = false
+            
+            switch result {
+            case .success:
+                popupManager.toast = .signUpComplete
+                dismiss()
+            case .failure(let error):
+                if let authError = error as? AuthError {
+                    errorMessage = authError.errorDescription ?? "회원가입에 실패했습니다."
+                } else {
+                    errorMessage = error.localizedDescription
+                }
+            }
+        }
     }
 }
 

@@ -174,7 +174,7 @@ struct ThemeSelectView: View {
                                         }
                                     }
                                 }
-                        } else if authManager.currentUser?.favoritePlayer == nil || authManager.currentUser?.racket == nil {
+                        } else if authManager.currentUser!.favoritePlayer!.isEmpty || authManager.currentUser!.racket!.isEmpty {
                             Button {
                                 popupManager.activePopup = .themeOpen
                             } label: {

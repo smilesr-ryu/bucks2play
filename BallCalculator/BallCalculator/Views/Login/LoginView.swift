@@ -23,35 +23,33 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                VStack(spacing: 24) {
-                    VStack(spacing: 11) {
-                        SignInWithAppleButtonView()
-                    }
+//                VStack(spacing: 24) {
+                    SignInView()
                     
-                    HStack {
-                        NavigationLink {
-                            FindAccountView()
-                        } label: {
-                            Text("내 계정 찾기")
-                                .fontStyle(.label1_R)
-                                .foregroundStyle(.black01)
-                                .underline()
-                        }
-                        
-                        Rectangle()
-                            .frame(width: 1, height: 12)
-                            .foregroundStyle(.black02)
-                        
-                        NavigationLink {
-                            SignInView()
-                        } label: {
-                            Text("아이디로 시작하기")
-                                .fontStyle(.label1_R)
-                                .foregroundStyle(.black01)
-                                .underline()
-                        }
-                    }
-                }
+//                    HStack {
+//                        NavigationLink {
+//                            FindAccountView()
+//                        } label: {
+//                            Text("내 계정 찾기")
+//                                .fontStyle(.label1_R)
+//                                .foregroundStyle(.black01)
+//                                .underline()
+//                        }
+//                        
+//                        Rectangle()
+//                            .frame(width: 1, height: 12)
+//                            .foregroundStyle(.black02)
+//                        
+//                        NavigationLink {
+//                            SignInView()
+//                        } label: {
+//                            Text("아이디로 시작하기")
+//                                .fontStyle(.label1_R)
+//                                .foregroundStyle(.black01)
+//                                .underline()
+//                        }
+//                    }
+//                }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 118)
             }

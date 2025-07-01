@@ -21,11 +21,11 @@ struct SignInView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            TopBar(
-                title: "아이디로 시작하기",
-                back: {
-                    dismiss()
-                })
+//            TopBar(
+//                title: "아이디로 시작하기",
+//                back: {
+//                    dismiss()
+//                })
             
             FormTextField(
                 prompt: "아이디 입력",

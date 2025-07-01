@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 struct SignUpView: View {
     @Environment(\.dismiss) private var dismiss
@@ -128,16 +129,16 @@ struct SignUpView: View {
                     },
                     trailing: {
                         if isEmailVerified {
-                            HStack(spacing: 8) {
-                                Image(.checked24)
-                                    .foregroundStyle(.green)
-                                Text("인증완료")
-                                    .fontStyle(.caption1_R)
-                                    .foregroundStyle(.green)
-                            }
+                            RoundedButton(
+                                "인증 완료",
+                                isEnabled: false,
+                                action: { }
+                            )
                         } else {
                             RoundedButton(
-                                isEmailVerifying ? "인증중..." : "인증 요청",
+                                isEmailVerifying
+                                ? "인증중..."
+                                : "인증 요청",
                                 isEnabled: isValidEmail && !isEmailVerifying,
                                 action: {
                                     requestEmailVerification()
@@ -297,14 +298,6 @@ struct SignUpView: View {
                     }
                 )
                 
-                if !errorMessage.isEmpty {
-                    Text(errorMessage)
-                        .fontStyle(.caption1_R)
-                        .foregroundStyle(.red)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 8)
-                }
-                
                 BasicButton("회원가입", type: .primary, isEnabled: isValidUser && isEmailVerified && !isLoading) {
                     performSignUp()
                 }
@@ -313,10 +306,26 @@ struct SignUpView: View {
         }
         .toolbar(.hidden)
         .onChange(of: scenePhase) { _, newPhase in
-            if newPhase == .active && !isEmailVerified && !email.isEmpty && errorMessage.contains("인증 메일을 확인해주세요") {
-                // 앱이 포그라운드로 돌아왔을 때 이메일 인증 상태 자동 확인
+            Task {
+                await checkEmailVerificationManually()
+            }
+        }
+        .onChange(of: email) { _, newEmail in
+            // 이메일이 변경되면 인증 상태 초기화
+            if !newEmail.isEmpty {
+                isEmailVerified = false
+                isEmailVerifying = false
+                errorMessage = ""
+            }
+        }
+        .onDisappear {
+            // 뷰가 사라질 때 계정 정리 (회원가입이 완료되지 않은 경우)
+            if !isEmailVerified {
                 Task {
-                    await checkEmailVerificationAutomatically()
+                    if let currentUser = Auth.auth().currentUser, currentUser.email == email {
+                        try? await currentUser.delete()
+                        print("🗑️ 미완료 회원가입 계정 삭제")
+                    }
                 }
             }
         }
@@ -330,7 +339,7 @@ struct SignUpView: View {
         
         // 회원가입 전 이메일 인증 상태 재확인
         Task {
-            await checkEmailVerificationAutomatically()
+            await checkEmailVerificationManually()
             
             await MainActor.run {
                 guard isEmailVerified else {
@@ -359,17 +368,57 @@ struct SignUpView: View {
             racket: myRacket.isEmpty ? nil : myRacket
         )
         
-        authManager.signupWithCompletion(user) { result in
-            switch result {
-            case .success:
-                self.popupManager.toast = .signUpComplete
-                self.dismiss()
-            case .failure(let error):
-                self.isLoading = false
-                if let authError = error as? AuthError {
-                    self.errorMessage = authError.errorDescription ?? "회원가입에 실패했습니다."
-                } else {
-                    self.errorMessage = error.localizedDescription
+        // Firebase Auth 계정의 비밀번호를 실제 비밀번호로 업데이트
+        Task {
+            do {
+                guard let currentUser = Auth.auth().currentUser else {
+                    await MainActor.run {
+                        isLoading = false
+                        errorMessage = "인증된 계정을 찾을 수 없습니다."
+                    }
+                    return
+                }
+                
+                // 비밀번호 업데이트
+                try await currentUser.updatePassword(to: password)
+                print("✅ 비밀번호 업데이트 완료")
+                
+                // Firestore에 사용자 정보 저장
+                let userData: [String: Any] = [
+                    "id": user.id,
+                    "firebaseUID": currentUser.uid,
+                    "email": user.email,
+                    "name": user.name,
+                    "nickname": user.nickname ?? "",
+                    "gender": user.gender?.rawValue ?? "",
+                    "favoritePlayer": user.favoritePlayer ?? "",
+                    "racket": user.racket ?? "",
+                    "lastLogin": user.lastLogin,
+                    "isEmailVerified": true,
+                    "createdAt": FieldValue.serverTimestamp()
+                ]
+                
+                try await Firestore.firestore().collection("users").document(currentUser.uid).setData(userData)
+                print("✅ Firestore에 사용자 정보 저장 완료")
+                
+                await MainActor.run {
+                    self.popupManager.toast = .signUpComplete
+                    self.dismiss()
+                }
+                
+            } catch {
+                await MainActor.run {
+                    isLoading = false
+                    if let error = error as NSError? {
+                        switch error.code {
+                        case AuthErrorCode.requiresRecentLogin.rawValue:
+                            errorMessage = "보안을 위해 다시 로그인해주세요."
+                        default:
+                            errorMessage = "회원가입에 실패했습니다: \(error.localizedDescription)"
+                        }
+                    } else {
+                        errorMessage = "회원가입에 실패했습니다: \(error.localizedDescription)"
+                    }
                 }
             }
         }
@@ -379,30 +428,36 @@ struct SignUpView: View {
         isEmailVerifying = true
         errorMessage = ""
         
-        // Firebase Auth의 내장 이메일 인증 기능 사용
+        print("📧 이메일 인증 요청 시작: \(email)")
+        
+        // 회원가입 정보로 Firebase Auth 계정 생성
         Task {
             do {
-                // 임시 비밀번호 생성 (임시 계정용)
+                // 임시 비밀번호 생성 (회원가입 시 실제 비밀번호로 변경됨)
                 let tempPassword = "Temp\(UUID().uuidString.prefix(8))"
+                print("🔑 임시 비밀번호 생성: \(tempPassword)")
                 
-                // Firebase Auth로 임시 계정 생성
+                // Firebase Auth로 계정 생성
+                print("👤 Firebase Auth 계정 생성 시작")
                 let authResult = try await Auth.auth().createUser(withEmail: email, password: tempPassword)
+                print("✅ Firebase Auth 계정 생성 완료: \(authResult.user.uid)")
                 
                 // 이메일 인증 메일 전송
+                print("📤 이메일 인증 메일 전송 시작")
                 try await authResult.user.sendEmailVerification()
-                
-                // 임시 계정 삭제 (이메일 인증은 유지됨)
-                try await authResult.user.delete()
+                print("✅ 이메일 인증 메일 전송 완료")
                 
                 await MainActor.run {
-                    isEmailVerifying = false
                     errorMessage = "인증 메일을 확인해주세요. 이메일 링크를 클릭한 후 앱으로 돌아와주세요."
+                    print("📱 UI 업데이트 완료: 인증 메일 전송 성공")
                 }
                 
             } catch {
+                print("❌ 이메일 인증 요청 실패: \(error)")
                 await MainActor.run {
-                    isEmailVerifying = false
+                    isEmailVerifying = false // 에러 발생 시에만 false로 변경
                     if let error = error as NSError? {
+                        print("🔍 에러 코드: \(error.code)")
                         switch error.code {
                         case AuthErrorCode.emailAlreadyInUse.rawValue:
                             errorMessage = "이미 사용 중인 이메일입니다. 다른 이메일을 사용해주세요."
@@ -419,72 +474,38 @@ struct SignUpView: View {
         }
     }
     
-    private func checkEmailVerificationAutomatically() async {
-        do {
-            // 임시 비밀번호로 다시 계정 생성하여 인증 상태 확인
-            let tempPassword = "Temp\(UUID().uuidString.prefix(8))"
-            
-            // 임시 계정 다시 생성
-            let authResult = try await Auth.auth().createUser(withEmail: email, password: tempPassword)
-            
-            // 사용자 정보 새로고침하여 인증 상태 확인
-            try await authResult.user.reload()
-            
-            let isVerified = authResult.user.isEmailVerified
-            
-            // 임시 계정 삭제
-            try await authResult.user.delete()
-            
-            await MainActor.run {
-                if isVerified {
-                    isEmailVerified = true
-                    errorMessage = ""
-                }
-            }
-            
-        } catch {
-            await MainActor.run {
-                if let error = error as NSError? {
-                    switch error.code {
-                    case AuthErrorCode.emailAlreadyInUse.rawValue:
-                        // 이미 계정이 존재하는 경우, 인증 상태만 확인
-                        Task {
-                            await checkExistingAccountVerification()
-                        }
-                    default:
-                        // 에러가 발생해도 조용히 처리 (자동 확인이므로)
-                        break
-                    }
-                }
-            }
+    private func checkEmailVerificationManually() async {
+        print("🔍 이메일 인증 수동 확인 시작")
+        
+        guard let user = Auth.auth().currentUser else {
+            print("❌ 현재 로그인된 사용자 없음")
+            return
         }
-    }
-    
-    private func checkExistingAccountVerification() async {
+        
         do {
-            // 기존 계정이 있는 경우, 해당 계정의 인증 상태 확인
-            let tempPassword = "Temp\(UUID().uuidString.prefix(8))"
-            
-            // 기존 계정으로 로그인 시도
-            let authResult = try await Auth.auth().signIn(withEmail: email, password: tempPassword)
-            
             // 사용자 정보 새로고침
-            try await authResult.user.reload()
+            print("🔄 사용자 정보 새로고침 시작")
+            try await user.reload()
+            print("✅ 사용자 정보 새로고침 완료")
             
-            let isVerified = authResult.user.isEmailVerified
-            
-            // 로그아웃
-            try Auth.auth().signOut()
-            
-            await MainActor.run {
-                if isVerified {
+            if user.isEmailVerified {
+                print("✅ 이메일 인증 완료됨")
+                await MainActor.run {
                     isEmailVerified = true
+                    isEmailVerifying = false
                     errorMessage = ""
                 }
+            } else {
+                print("❌ 아직 인증되지 않음")
+                await MainActor.run {
+                    errorMessage = "이메일 인증이 완료되지 않았습니다. 이메일을 확인해주세요."
+                }
             }
-            
         } catch {
-            // 에러가 발생해도 조용히 처리 (자동 확인이므로)
+            print("❌ 사용자 정보 새로고침 실패: \(error)")
+            await MainActor.run {
+                errorMessage = "인증 확인에 실패했습니다: \(error.localizedDescription)"
+            }
         }
     }
 }

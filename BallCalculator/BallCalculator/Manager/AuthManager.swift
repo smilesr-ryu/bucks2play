@@ -523,58 +523,19 @@ extension AuthManager {
                 }
             } else {
                 print("Firestore에서 사용자 데이터를 찾을 수 없음: \(userId)")
-                // 사용자 데이터가 없으면 기본 정보로 생성
-                await createDefaultUserData(userId: userId)
+                // 사용자 데이터가 없으면 currentUser를 nil로 설정
+                DispatchQueue.main.async {
+                    self.currentUser = nil
+                    print("사용자 데이터가 없어 currentUser를 nil로 설정")
+                }
             }
         } catch {
             print("Firestore에서 사용자 정보 가져오기 실패: \(error)")
-            // 에러 발생 시에도 기본 정보로 생성 시도
-            await createDefaultUserData(userId: userId)
-        }
-    }
-    
-    private func createDefaultUserData(userId: String) async {
-        do {
-            print("기본 사용자 데이터 생성 시작: \(userId)")
-            
-            guard let firebaseUser = Auth.auth().currentUser else {
-                print("Firebase Auth 사용자 정보 없음")
-                return
-            }
-            
-            let defaultUser = User(
-                id: "user_\(userId.prefix(8))", // 임시 ID 생성
-                firebaseUID: userId,
-                email: firebaseUser.email ?? "",
-                name: firebaseUser.displayName ?? "사용자",
-                nickname: nil,
-                gender: nil,
-                favoritePlayer: nil,
-                racket: nil,
-                lastLogin: .now
-            )
-            
-            let userData: [String: Any] = [
-                "id": defaultUser.id,
-                "firebaseUID": defaultUser.firebaseUID ?? "",
-                "email": defaultUser.email,
-                "name": defaultUser.name,
-                "nickname": defaultUser.nickname ?? "",
-                "gender": defaultUser.gender?.rawValue ?? "",
-                "favoritePlayer": defaultUser.favoritePlayer ?? "",
-                "racket": defaultUser.racket ?? "",
-                "lastLogin": defaultUser.lastLogin,
-                "createdAt": FieldValue.serverTimestamp()
-            ]
-            
-            try await db.collection("users").document(userId).setData(userData)
-            
+            // 에러 발생 시에도 currentUser를 nil로 설정
             DispatchQueue.main.async {
-                self.currentUser = defaultUser
-                print("기본 사용자 데이터 생성 완료: \(defaultUser.name)")
+                self.currentUser = nil
+                print("에러 발생으로 currentUser를 nil로 설정")
             }
-        } catch {
-            print("기본 사용자 데이터 생성 실패: \(error)")
         }
     }
     

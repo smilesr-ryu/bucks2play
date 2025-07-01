@@ -174,7 +174,30 @@ struct ThemeSelectView: View {
                                         }
                                     }
                                 }
-                        } else if authManager.currentUser!.favoritePlayer!.isEmpty || authManager.currentUser!.racket!.isEmpty {
+                        } else if authManager.currentUser?.favoritePlayer?.isEmpty == false && authManager.currentUser?.racket?.isEmpty == false {
+                            Button {
+                                currentTheme = theme
+                                UserDefaults.standard.set(theme.rawValue, forKey: "theme")
+                            } label: {
+                                Image("logo_"+theme.rawValue)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .frame(width: 70, height: 70)
+                                    .background {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .frame(width: 70, height: 70)
+                                            .background(.white)
+                                            .cornerRadius(10)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .inset(by: 0.75)
+                                                    .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
+                                            )
+                                    }
+                            }
+                        } else {
                             Button {
                                 popupManager.activePopup = .themeOpen
                             } label: {
@@ -203,29 +226,6 @@ struct ThemeSelectView: View {
                                                 Image(.lock)
                                             }
                                         }
-                                    }
-                            }
-                        } else {
-                            Button {
-                                currentTheme = theme
-                                UserDefaults.standard.set(theme.rawValue, forKey: "theme")
-                            } label: {
-                                Image("logo_"+theme.rawValue)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(5)
-                                    .frame(width: 70, height: 70)
-                                    .background {
-                                        Rectangle()
-                                            .foregroundColor(.clear)
-                                            .frame(width: 70, height: 70)
-                                            .background(.white)
-                                            .cornerRadius(10)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .inset(by: 0.75)
-                                                    .stroke(Color(red: 0.93, green: 0.93, blue: 0.93), lineWidth: 1.5)
-                                            )
                                     }
                             }
                         }

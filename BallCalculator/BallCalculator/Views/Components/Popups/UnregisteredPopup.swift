@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UnregisteredPopup: View {
+    @State private var popupManager = PopupManager.shared
+    
     var body: some View {
         ZStack {
             Color.black01.opacity(0.6)
@@ -26,7 +28,7 @@ struct UnregisteredPopup: View {
                 
                 
                 BasicButton("확인", type: .primary) {
-                    
+                    popupManager.activePopup = nil
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 16)

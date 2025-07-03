@@ -47,10 +47,14 @@ struct FindAccountView: View {
                 .padding(.top, 64)
                 .padding(.horizontal, 20)
                 
-                Text("비밀번호를 잊어버렸나요?")
-                    .fontStyle(.label1_R)
-                    .foregroundStyle(.black01)
-                    .padding(.vertical, 15)
+                NavigationLink {
+                    FindPasswordView()
+                } label: {
+                    Text("비밀번호를 잊어버렸나요?")
+                        .fontStyle(.label1_R)
+                        .foregroundStyle(.black01)
+                        .padding(.vertical, 15)
+                }
             } else {
                 FormTextField(
                     prompt: "이메일 입력",

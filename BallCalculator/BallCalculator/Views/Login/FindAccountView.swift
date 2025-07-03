@@ -17,9 +17,6 @@ struct FindAccountView: View {
     @State private var userId: String?
     @State private var isLoading: Bool = false
     
-    // 앱 상태 변화 감지를 위한 변수
-    @Environment(\.scenePhase) private var scenePhase
-    
     private var isValidEmail: Bool {
         guard email.range(of: #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#, options: .regularExpression) != nil else { return false }
         return true

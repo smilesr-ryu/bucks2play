@@ -60,7 +60,7 @@ extension AuthManager {
             "email": user.email,
             "name": user.name,
             "nickname": user.nickname ?? "",
-            "gender": user.gender?.rawValue ?? "",
+            "gender": user.gender?.value ?? "",
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
             "lastLogin": user.lastLogin,
@@ -107,69 +107,6 @@ extension AuthManager {
         await fetchUserFromFirestore(userId: authResult.user.uid)
         
         print("Firebase 로그인 완료: \(currentUser?.name ?? "알 수 없는 사용자")")
-    }
-    
-    func signinWithApple(credential: ASAuthorizationAppleIDCredential) async throws {
-        // Apple ID로부터 사용자 정보 추출
-        let userID = credential.user
-        let email = credential.email ?? ""
-        let fullName = credential.fullName
-        let firstName = fullName?.givenName ?? ""
-        let lastName = fullName?.familyName ?? ""
-        let name = "\(firstName) \(lastName)".trimmingCharacters(in: .whitespaces)
-        
-        // Apple ID 토큰을 Firebase 크레덴셜로 변환
-        guard let appleIDToken = credential.identityToken,
-              let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-            throw AuthError.invalidCredential
-        }
-        
-        let nonce = randomNonceString()
-        let firebaseCredential = OAuthProvider.credential(
-            withProviderID: "apple.com",
-            idToken: idTokenString,
-            rawNonce: nonce
-        )
-        
-        // Firebase Auth로 로그인
-        let authResult = try await Auth.auth().signIn(with: firebaseCredential)
-        
-        // Firestore에서 사용자 정보 확인
-        let userDoc = try await db.collection("users").document(authResult.user.uid).getDocument()
-        
-        if userDoc.exists {
-            // 기존 사용자: 정보 업데이트
-            await fetchUserFromFirestore(userId: authResult.user.uid)
-        } else {
-            // 새 사용자: Firestore에 저장
-            let user = User(
-                id: userID,
-                email: email,
-                name: name.isEmpty ? "Apple User" : name,
-                nickname: nil,
-                gender: nil,
-                favoritePlayer: nil,
-                racket: nil,
-                lastLogin: .now
-            )
-            
-            let userData: [String: Any] = [
-                "id": user.id,
-                "email": user.email,
-                "name": user.name,
-                "nickname": user.nickname ?? "",
-                "gender": user.gender?.rawValue ?? "",
-                "favoritePlayer": user.favoritePlayer ?? "",
-                "racket": user.racket ?? "",
-                "lastLogin": user.lastLogin,
-                "createdAt": FieldValue.serverTimestamp()
-            ]
-            
-            try await db.collection("users").document(authResult.user.uid).setData(userData)
-            self.currentUser = user
-        }
-        
-        print("Apple 로그인 성공: \(currentUser?.name ?? "알 수 없는 사용자") (\(currentUser?.email ?? ""))")
     }
     
     func logout() async throws {
@@ -343,21 +280,6 @@ extension AuthManager {
         }
     }
     
-    func signinWithAppleWithCompletion(credential: ASAuthorizationAppleIDCredential, completion: @escaping (Result<Void, Error>) -> Void) {
-        Task {
-            do {
-                try await signinWithApple(credential: credential)
-                DispatchQueue.main.async {
-                    completion(.success(()))
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    
     func logoutWithCompletion(completion: @escaping (Result<Void, Error>) -> Void) {
         Task {
             do {
@@ -503,6 +425,14 @@ extension AuthManager {
             
             if document.exists, let data = document.data() {
                 print("Firestore에서 사용자 데이터 발견: \(data)")
+                var gender: Gender {
+                    let genderString = data["gender"] as? String ?? "UNKNOWN"
+                    switch genderString {
+                    case "MALE": return .male
+                    case "FEMALE": return .female
+                    default: return .none
+                    }
+                }
                 
                 let user = User(
                     id: data["id"] as? String ?? userId,
@@ -510,7 +440,7 @@ extension AuthManager {
                     email: data["email"] as? String ?? "",
                     name: data["name"] as? String ?? "",
                     nickname: data["nickname"] as? String,
-                    gender: Gender(rawValue: data["gender"] as? String ?? ""),
+                    gender: gender,
                     favoritePlayer: data["favoritePlayer"] as? String,
                     racket: data["racket"] as? String,
                     lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now,
@@ -537,38 +467,6 @@ extension AuthManager {
                 print("에러 발생으로 currentUser를 nil로 설정")
             }
         }
-    }
-    
-    private func randomNonceString(length: Int = 32) -> String {
-        precondition(length > 0)
-        let charset: [Character] =
-        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-        var result = ""
-        var remainingLength = length
-        
-        while remainingLength > 0 {
-            let randoms: [UInt8] = (0 ..< 16).map { _ in
-                var random: UInt8 = 0
-                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-                if errorCode != errSecSuccess {
-                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-                }
-                return random
-            }
-            
-            randoms.forEach { random in
-                if remainingLength == 0 {
-                    return
-                }
-                
-                if random < charset.count {
-                    result.append(charset[Int(random)])
-                    remainingLength -= 1
-                }
-            }
-        }
-        
-        return result
     }
 }
 

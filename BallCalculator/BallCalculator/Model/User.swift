@@ -66,4 +66,12 @@ enum Gender: String, CaseIterable {
             return "선택하지 않음"
         }
     }
+    
+    var value: String {
+        switch self {
+        case .female: return "FEMALE"
+        case .male: return "MALE"
+        case .none: return "UNKNOWN"
+        }
+    }
 }

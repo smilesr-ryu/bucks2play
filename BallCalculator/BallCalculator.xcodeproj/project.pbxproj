@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2B544F7D2DC81AA500A0870A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F7C2DC81AA500A0870A /* Lottie */; };
 		2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F7F2DC81ABB00A0870A /* LottieView.swift */; };
-		2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */; };
 		2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F7E2DC81ABB00A0870A /* LoginView.swift */; };
 		2B544F872DC81B1100A0870A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F862DC81B1100A0870A /* FirebaseAuth */; };
 		2B544F892DC81B1100A0870A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2B544F882DC81B1100A0870A /* FirebaseFirestore */; };
@@ -87,7 +86,6 @@
 		2B544F7A2DC819FF00A0870A /* BallCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BallCalculator.entitlements; sourceTree = "<group>"; };
 		2B544F7E2DC81ABB00A0870A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2B544F7F2DC81ABB00A0870A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleLoginButton.swift; sourceTree = "<group>"; };
 		2B544F8C2DC81B7500A0870A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		2B544F902DC81B8400A0870A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				2B544FB02DC913A300A0870A /* Inputs */,
 				2B544FA12DC8C95200A0870A /* Buttons */,
 				2B544F7F2DC81ABB00A0870A /* LottieView.swift */,
-				2B544F802DC81ABB00A0870A /* SignInWithAppleLoginButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -551,7 +548,6 @@
 				2B544F822DC81ABB00A0870A /* LottieView.swift in Sources */,
 				2B9791C62DE8479F003B506C /* UserInfoView.swift in Sources */,
 				2B9791C32DE75406003B506C /* SheetManager.swift in Sources */,
-				2B544F832DC81ABB00A0870A /* SignInWithAppleLoginButton.swift in Sources */,
 				2B728E3B2DE04A6B00C1AF6D /* LogoutPopup.swift in Sources */,
 				2B544F842DC81ABB00A0870A /* LoginView.swift in Sources */,
 				2B728E2A2DD3438000C1AF6D /* SignInView.swift in Sources */,

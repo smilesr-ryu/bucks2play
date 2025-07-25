@@ -28,6 +28,9 @@ struct BallCalculatorApp: App {
                 .onAppear {
                     print("App Start-----------------------------")
                     ThemeManager.shared.loadDatesFromUserDefaults()
+                    Task {
+                        try? await AuthManager.shared.reloadUser()
+                    }
                 }
         }
     }

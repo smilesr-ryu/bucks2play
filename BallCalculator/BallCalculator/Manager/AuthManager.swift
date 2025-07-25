@@ -157,7 +157,7 @@ extension AuthManager {
             "email": user.email,
             "name": user.name,
             "nickname": user.nickname ?? "",
-            "gender": user.gender?.value ?? "",
+            "gender": user.gender?.value.uppercased() ?? "UNKNOWN",
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
             "lastLogin": user.lastLogin,
@@ -399,13 +399,22 @@ extension AuthManager {
             let data = document.data()
             print("사용자 ID로 검색 완료: \(data)")
             
+            var gender: Gender {
+                let genderString = data["gender"] as? String ?? "UNKNOWN"
+                switch genderString {
+                case "MALE": return .male
+                case "FEMALE": return .female
+                default: return .none
+                }
+            }
+            
             let user = User(
                 id: data["id"] as? String ?? userId,
                 firebaseUID: data["firebaseUID"] as? String,
                 email: data["email"] as? String ?? "",
                 name: data["name"] as? String ?? "",
                 nickname: data["nickname"] as? String,
-                gender: Gender(rawValue: data["gender"] as? String ?? ""),
+                gender: gender,
                 favoritePlayer: data["favoritePlayer"] as? String,
                 racket: data["racket"] as? String,
                 lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now

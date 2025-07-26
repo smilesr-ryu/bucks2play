@@ -9,8 +9,23 @@ import SwiftUI
 import Lottie
 
 struct LottieView: UIViewRepresentable {
-    let name: String
+    let randomNumber: Int
     let loopMode: LottieLoopMode
+    
+    var name: String {
+        switch randomNumber {
+        case 0:
+            return "ausopen"
+        case 1:
+            return "rolandgarros"
+        case 2:
+            return "us"
+        case 3:
+            return "wimbledon"
+        default:
+            return "ausopen"
+        }
+    }
 
     func makeUIView(context: Context) -> some UIView {
         let view = UIView()

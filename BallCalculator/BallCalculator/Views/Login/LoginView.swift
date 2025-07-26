@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var randomTheme: Int = .random(in: 0..<3)
     
     var body: some View {
         NavigationStack {
@@ -17,7 +18,7 @@ struct LoginView: View {
                     dismiss()
                 })
                 
-                LottieView(name: "login", loopMode: .loop)
+                LottieView(randomNumber: randomTheme, loopMode: .loop)
                     .frame(height: 146)
                     .padding(.top, 40)
                 

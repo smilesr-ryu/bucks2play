@@ -25,7 +25,6 @@ struct LoginView: View {
                 Spacer()
                 
                 SignInView()
-                    .padding(.horizontal, 20)
                     .padding(.bottom, 118)
             }
         }

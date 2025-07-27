@@ -43,6 +43,7 @@ struct SignInView: View {
                     }
                 }
             )
+            .padding(.bottom, 16)
             
             BasicButton(
                 "로그인",
@@ -106,6 +107,7 @@ struct SignInView: View {
             case .success:
                 sheetManager.loginSheetIsPresented = false
             case .failure(let error):
+                PopupManager.shared.activePopup = .unregisteredAccount
                 break
             }
         }

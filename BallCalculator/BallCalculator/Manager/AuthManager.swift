@@ -161,7 +161,6 @@ extension AuthManager {
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
             "lastLogin": user.lastLogin,
-            "isEmailVerified": user.isEmailVerified,
             "updatedAt": FieldValue.serverTimestamp()
         ]
         
@@ -224,7 +223,6 @@ extension AuthManager {
             
             // 현재 사용자 정보 업데이트
             if var currentUser = self.currentUser {
-                currentUser.isEmailVerified = true
                 self.currentUser = currentUser
             }
         }
@@ -452,13 +450,12 @@ extension AuthManager {
                     gender: gender,
                     favoritePlayer: data["favoritePlayer"] as? String,
                     racket: data["racket"] as? String,
-                    lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now,
-                    isEmailVerified: data["isEmailVerified"] as? Bool ?? false
+                    lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now
                 )
                 
                 DispatchQueue.main.async {
                     self.currentUser = user
-                    print("현재 사용자 설정 완료: \(user.name), 이메일 인증: \(user.isEmailVerified)")
+                    print("현재 사용자 설정 완료: \(user.name)")
                 }
             } else {
                 print("Firestore에서 사용자 데이터를 찾을 수 없음: \(userId)")

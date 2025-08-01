@@ -63,8 +63,8 @@ extension AuthManager {
             "gender": user.gender?.value.uppercased() ?? "",
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
-            "lastLogin": user.lastLogin,
-            "createdAt": FieldValue.serverTimestamp()
+            "lastLoginDate": user.lastLogin,
+            "signUpDate": FieldValue.serverTimestamp()
         ]
         
         print("Firestore에 저장할 데이터: \(userData)")
@@ -160,7 +160,7 @@ extension AuthManager {
             "gender": user.gender?.value.uppercased() ?? "UNKNOWN",
             "favoritePlayer": user.favoritePlayer ?? "",
             "racket": user.racket ?? "",
-            "lastLogin": user.lastLogin,
+            "lastLoginDate": user.lastLogin,
             "updatedAt": FieldValue.serverTimestamp()
         ]
         

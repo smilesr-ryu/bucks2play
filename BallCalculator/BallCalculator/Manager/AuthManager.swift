@@ -415,7 +415,7 @@ extension AuthManager {
                 gender: gender,
                 favoritePlayer: data["favoritePlayer"] as? String,
                 racket: data["racket"] as? String,
-                lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now
+                lastLogin: (data["lastLoginDate"] as? Timestamp)?.dateValue() ?? .now
             )
             
             return user
@@ -450,7 +450,7 @@ extension AuthManager {
                     gender: gender,
                     favoritePlayer: data["favoritePlayer"] as? String,
                     racket: data["racket"] as? String,
-                    lastLogin: (data["lastLogin"] as? Timestamp)?.dateValue() ?? .now
+                    lastLogin: (data["lastLoginDate"] as? Timestamp)?.dateValue() ?? .now
                 )
                 
                 DispatchQueue.main.async {

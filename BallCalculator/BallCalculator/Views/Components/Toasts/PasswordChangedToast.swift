@@ -10,7 +10,7 @@ import SwiftUI
 struct PasswordChangedToast: View {
     var body: some View {
         HStack {
-            Text("비밀번호가 변경되었습니다.")
+            Text("비밀번호 변경 메일이 발송되었습니다.")
                 .fontStyle(.label1_R)
                 .foregroundStyle(.white01)
                 .padding(.horizontal, 16)

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct UserInfoView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var authManager: AuthManager = .shared
-    var popupmanager: PopupManager = .shared
+    var popupManager: PopupManager = .shared
     
     var body: some View {
         NavigationStack {
@@ -105,6 +106,25 @@ struct UserInfoView: View {
                             .frame(height: 44)
                             .padding(.leading, 20)
                             
+                            HStack {
+                                Text("비밀번호")
+                                    .fontStyle(.label1_R)
+                                    .foregroundStyle(.black02)
+                                    .frame(width: 112, alignment: .leading)
+                                TinyButton("비밀번호 변경", type: .secondary) {
+                                    Auth.auth().sendPasswordReset(withEmail: authManager.currentUser!.email) { error in
+                                        if error != nil {
+                                            popupManager.activePopup = .unregisteredAccount
+                                        } else {
+                                            popupManager.toast = .passwordChanged
+                                        }
+                                    }
+                                }
+                                Spacer()
+                            }
+                            .frame(height: 44)
+                            .padding(.leading, 20)
+                            
                             HStack(spacing: 4) {
                                 Image(.benefit)
                                 Image(.themeBadge)
@@ -167,7 +187,7 @@ struct UserInfoView: View {
                         
                         HStack(spacing: 36) {
                             Button {
-                                popupmanager.activePopup = .deleteAccount
+                                popupManager.activePopup = .deleteAccount
                             } label: {
                                 Text("회원탈퇴")
                                     .fontStyle(.label1_R)
@@ -180,7 +200,7 @@ struct UserInfoView: View {
                                 .foregroundStyle(.black02)
                             
                             Button {
-                                popupmanager.activePopup = .logout
+                                popupManager.activePopup = .logout
                             } label: {
                                 Text("로그아웃")
                                     .fontStyle(.label1_R)

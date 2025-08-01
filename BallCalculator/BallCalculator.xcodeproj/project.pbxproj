@@ -16,7 +16,6 @@
 		2B544F8F2DC81B7E00A0870A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */; };
 		2B544F912DC81B8400A0870A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544F902DC81B8400A0870A /* View+Extension.swift */; };
 		2B544F932DC81B9800A0870A /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F922DC81B9800A0870A /* login.json */; };
-		2B544F972DC81E9300A0870A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B544F962DC81E9300A0870A /* GoogleService-Info.plist */; };
 		2B544FA32DC8CA3F00A0870A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FA22DC8CA3F00A0870A /* AuthManager.swift */; };
 		2B544FA52DC8CCF500A0870A /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FA42DC8CCEE00A0870A /* ButtonStyle.swift */; };
 		2B544FA72DC8CFDF00A0870A /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B544FA62DC8CFDF00A0870A /* BasicButton.swift */; };
@@ -30,6 +29,7 @@
 		2B5A34462E35400800C0B18B /* rolandgarros.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5A34452E35400800C0B18B /* rolandgarros.json */; };
 		2B5A34482E35400D00C0B18B /* us.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5A34472E35400D00C0B18B /* us.json */; };
 		2B5A344A2E35401100C0B18B /* wimbledon.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5A34492E35401100C0B18B /* wimbledon.json */; };
+		2B5A34A12E3C834C00C0B18B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5A34A02E3C834C00C0B18B /* GoogleService-Info.plist */; };
 		2B728E2A2DD3438000C1AF6D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E292DD3438000C1AF6D /* SignInView.swift */; };
 		2B728E2C2DD3D74F00C1AF6D /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */; };
 		2B728E2E2DD3DA2900C1AF6D /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */; };
@@ -94,7 +94,6 @@
 		2B544F8E2DC81B7E00A0870A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		2B544F902DC81B8400A0870A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		2B544F922DC81B9800A0870A /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
-		2B544F962DC81E9300A0870A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B544FA22DC8CA3F00A0870A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		2B544FA42DC8CCEE00A0870A /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		2B544FA62DC8CFDF00A0870A /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		2B5A34452E35400800C0B18B /* rolandgarros.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rolandgarros.json; sourceTree = "<group>"; };
 		2B5A34472E35400D00C0B18B /* us.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = us.json; sourceTree = "<group>"; };
 		2B5A34492E35401100C0B18B /* wimbledon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wimbledon.json; sourceTree = "<group>"; };
+		2B5A34A02E3C834C00C0B18B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B728E292DD3438000C1AF6D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		2B728E2B2DD3D74F00C1AF6D /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		2B728E2D2DD3DA2900C1AF6D /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 				2B544F7A2DC819FF00A0870A /* BallCalculator.entitlements */,
 				C532B4962AD4D669006E298D /* BallCalculatorApp.swift */,
 				C532B4D52AD639DC006E298D /* Info.plist */,
-				2B544F962DC81E9300A0870A /* GoogleService-Info.plist */,
+				2B5A34A02E3C834C00C0B18B /* GoogleService-Info.plist */,
 				C5D1957B2ADA59E80079E799 /* Extension */,
 				C532B4C42AD638AC006E298D /* Resources */,
 				C5D1957E2ADA6EFE0079E799 /* Model */,
@@ -506,8 +506,8 @@
 			files = (
 				C5339C202AE558BB00ADCF6B /* NotoSansKR-Bold.ttf in Resources */,
 				2B5A34462E35400800C0B18B /* rolandgarros.json in Resources */,
+				2B5A34A12E3C834C00C0B18B /* GoogleService-Info.plist in Resources */,
 				2B544F932DC81B9800A0870A /* login.json in Resources */,
-				2B544F972DC81E9300A0870A /* GoogleService-Info.plist in Resources */,
 				C532B49B2AD4D66C006E298D /* Assets.xcassets in Resources */,
 				C5339C212AE558BB00ADCF6B /* NotoSansKR-Regular.ttf in Resources */,
 				2B5A34442E353FFF00C0B18B /* ausopen.json in Resources */,
@@ -745,7 +745,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = UV2PAA368V;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallCalculator/Info.plist;
@@ -761,7 +761,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator.yunki;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -778,7 +778,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = UV2PAA368V;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallCalculator/Info.plist;
@@ -794,7 +794,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator.yunki;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hill2play.BallCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

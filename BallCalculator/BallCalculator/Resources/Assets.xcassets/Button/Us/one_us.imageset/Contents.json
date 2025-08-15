@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "one_us.png",
+      "filename" : "Property 1=ic-us-trophy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Property 1=ic-us-trophy 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Property 1=ic-us-trophy 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

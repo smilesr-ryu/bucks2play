@@ -31,6 +31,15 @@ enum Theme: String, CaseIterable {
         }
     }
     
+    var lockedColor: String {
+        switch self {
+        case .aus: "7FBCE9"
+        case .rol: "00220E"
+        case .wim: "23003D"
+        case .us: "060041"
+        }
+    }
+    
     var periodName: String {
         switch self {
         case .aus: "Aus open"

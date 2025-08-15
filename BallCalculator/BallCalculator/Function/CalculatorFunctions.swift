@@ -6,7 +6,7 @@
 //
 
 
-extension ContentView {
+extension CalculatorView {
     func didTap(button: CalcButton) {
         
         switch button {
@@ -109,7 +109,7 @@ extension ContentView {
             }
 
         case .menu:
-            isPresented = true
+            sheetManager.themeSelectSheetIsPresented = true
             break
             
         default:

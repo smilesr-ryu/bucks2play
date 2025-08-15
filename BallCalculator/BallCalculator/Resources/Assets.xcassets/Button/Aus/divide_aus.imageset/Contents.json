@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "divide_aus.png",
+      "filename" : "Property 1=ausopen_button.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Property 1=ausopen_button 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Property 1=ausopen_button 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
